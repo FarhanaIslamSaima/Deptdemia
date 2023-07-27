@@ -9,7 +9,7 @@ import {
   Router,
   useRouteMatch,
 } from "react-router-dom";
-import QueryBody from "./Component/Query/QueryBody";
+import QueryHome from "./Component/Query/QueryHome";
 import Home from "./Component/Home/Home";
 import Login from "./Component/SignIn/Login";
 import Signup from "./Component/SignIn/SignIn";
@@ -23,7 +23,7 @@ function App() {
    
   <Routes>
     <Route exact path="/" element={<Home/>}></Route>
-  <Route exact path="/Query" element={<QueryBody/>}></Route>
+  <Route exact path="/Query" element={<QueryHome/>}></Route>
   <Route exact path="/Contribute" element={<Contribute/>}></Route>
   <Route exact path="/login" element={<Login></Login>}></Route>
   <Route exact path="/signup" element={<Signup></Signup>}></Route>

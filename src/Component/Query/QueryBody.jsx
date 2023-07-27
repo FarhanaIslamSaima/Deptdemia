@@ -1,5 +1,5 @@
 import React, { useState, useRef, useMemo } from 'react';
-import { Box, Typography,Grid, Button ,Select,InputLabel} from '@mui/material';
+import { Box, Typography,Grid, Button ,Select,InputLabel, FormControl} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import JoditEditor from 'jodit-react';
@@ -20,7 +20,7 @@ const QueryBody = () => {
         content:'',
         img:''
     }
-    const [value,setValue]=useState(initialize);
+    const [value,setValue]=useState();
     const [subject,setSubject]=useState();
 
     const handleChange=(e)=>{
@@ -49,6 +49,7 @@ const QueryBody = () => {
                 margin:"10px"
             }
            }}>
+            
              
      <Select
           labelId="demo-simple-select-label"
@@ -59,8 +60,11 @@ const QueryBody = () => {
             flexDirection:"column",
             justifyContent:'center',
                     alignItems:'center',
-                   padding:"10px"
+                    color:'black'
+                   
           }}
+          label="Age"
+          name="option"
            
        
           onChange={handleChange}
@@ -74,12 +78,16 @@ const QueryBody = () => {
                
                 <MenuItem sx={{ 
                     display:"flex",
+
                     
             
             
              }}
                 
-                value={item.id} name="option">{item.label}</MenuItem>
+                value={item.id} name="option"><Typography sx={{
+                   display:'flex',
+                   justifyContent:'center'
+                }}>{item.label}</Typography></MenuItem>
                
             ))
         }
@@ -97,7 +105,7 @@ const QueryBody = () => {
 		/>
         <Button variant={'contained'} color={'primary'}>Submit</Button>
     
-
+        
 
            </Box>
        

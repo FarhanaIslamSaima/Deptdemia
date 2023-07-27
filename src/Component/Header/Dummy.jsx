@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function Dummy() {
+const Dummy = () => {
   return (
-    <div>This is a Dummy page</div>
-  )
-}
+    <div>
+      This is some dummy text for testing....
+    </div>
+  );
+};
+
+export default Dummy;

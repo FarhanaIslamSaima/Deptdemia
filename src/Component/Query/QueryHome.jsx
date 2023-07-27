@@ -1,11 +1,11 @@
 import React from 'react';
 
-const QueryBody = () => {
+const QueryHome = () => {
     return (
         <div>
-            This is body....;
+            
         </div>
     );
 };
 
-export default QueryBody;
+export default QueryHome;

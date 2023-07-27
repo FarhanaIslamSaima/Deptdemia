@@ -1,10 +1,17 @@
+import { Grid } from '@mui/material';
 import React from 'react';
+import QueryBody from './QueryBody';
+
+
 
 const QueryHome = () => {
     return (
-        <div>
-            
-        </div>
+        <Grid container>
+            <Grid item sm={12} xs={12}>
+                <QueryBody></QueryBody>
+            </Grid>
+        </Grid>
+        
     );
 };
 

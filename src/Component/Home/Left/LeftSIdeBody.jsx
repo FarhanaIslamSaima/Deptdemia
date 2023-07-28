@@ -2,8 +2,10 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import BookIcon from '@mui/icons-material/Book';
 import { BorderBottomOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import Physics from './Subjects/Physics/Physics';
 
-
+const Subject=['Physics','Chemistry','Math','English']
 const LeftSIdeBody = () => {
     return (
        <Box sx={{
@@ -12,7 +14,8 @@ const LeftSIdeBody = () => {
         marginTop:'10px',
         flexDirection:'column',
         width:"100%",
-        fontWeight:'bold'
+        fontWeight:'bold',
+        
 
        }}>
         <Typography sx={{
@@ -24,118 +27,34 @@ const LeftSIdeBody = () => {
         <Box sx={{
             marginTop:'10px'
         }}>
-            <Box sx={{
-                padding:'10px',
-                display:"flex",
-                borderBottom:'1px solid black',
-                '&>*':{
-                    padding:'5px',
-                
-                },
-                cursor:'pointer',
-                
-               
-                
-            }}>
-                <BookIcon></BookIcon>
-                <Typography >PHYSICS</Typography>
-            </Box>
-            <Box sx={{
-                padding:'10px',
-                display:"flex",
-                borderBottom:'1px solid black',
-                '&>*':{
-                    padding:'5px',
-                
-                },
-                cursor:'pointer',
-                
-               
-                
-            }}>
-                <BookIcon></BookIcon>
-                <Typography>PHYSICS</Typography>
-            </Box>
-            <Box sx={{
-                display:"flex",
-                padding:'10px',
-                borderBottom:'1px solid black',
-                '&>*':{
-                    padding:'5px',
-                
-                },
-                cursor:'pointer',
-                
-               
-                
-            }}>
-                <BookIcon></BookIcon>
-                <Typography>PHYSICS</Typography>
-            </Box>
-            <Box sx={{
-                display:"flex",
-                borderBottom:'1px solid black',
-                padding:'10px',
-                '&>*':{
-                    padding:'5px',
-                
-                },
-                cursor:'pointer',
-                
-               
-                
-            }}>
-                <BookIcon></BookIcon>
-                <Typography>PHYSICS</Typography>
-            </Box>
-            <Box sx={{
-                display:"flex",
-                borderBottom:'1px solid black',
-                padding:'10px',
-                '&>*':{
-                    padding:'5px',
-                
-                },
-                cursor:'pointer',
-                
-               
-                
-            }}>
-                <BookIcon></BookIcon>
-                <Typography>PHYSICS</Typography>
-            </Box>
-            <Box sx={{
-                display:"flex",
-                padding:'10px',
-                borderBottom:'1px solid black',
-                '&>*':{
-                    padding:'5px',
-                
-                },
-                cursor:'pointer',
-                
-               
-                
-            }}>
-                <BookIcon></BookIcon>
-                <Typography>PHYSICS</Typography>
-            </Box>
-            <Box sx={{
-                display:"flex",
-                padding:'10px',
-                borderBottom:'1px solid black',
-                '&>*':{
-                    padding:'5px',
-                
-                },
-                cursor:'pointer',
-                
-               
-                
-            }}>
-                <BookIcon></BookIcon>
-                <Typography>PHYSICS</Typography>
-            </Box>
+            {Subject.map(item=>(
+                     <Link to={item} style={{textDecoration: 'none', color:'black'}}> <Box sx={{
+                        padding:'10px',
+                        display:"flex",
+                        borderBottom:'1px solid #d5d5d5',
+                        '&>*':{
+                            padding:'5px',
+                        
+                        },
+                        cursor:'pointer',
+                        textDecoration:"none",
+                        '&:hover':{
+                            background:'#d5d5d5',
+                            
+        
+                        }
+                        
+                       
+                        
+                    }}>
+                        <BookIcon></BookIcon>
+                        <Typography sx={{fontWeight:'bold'}}>{item}</Typography>
+                    </Box></Link>
+
+
+            ))}
+      
+            
         </Box>
 
        </Box>

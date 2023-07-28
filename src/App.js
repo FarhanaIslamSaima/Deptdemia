@@ -14,11 +14,12 @@ import Home from "./Component/Home/Home";
 import Login from "./Component/SignIn/Login";
 import Signup from "./Component/SignIn/SignIn";
 import Physics from "./Component/Home/Left/Subjects/Physics/Physics";
-
+import AccountContext from "./Context/AccountContext";
 
 function App() {
   return (
     <>
+    
   
    <BrowserRouter>
    <Header/>

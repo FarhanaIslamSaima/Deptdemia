@@ -20,7 +20,7 @@ const PhysicsBody = () => {
                 <Typography><b>Problem Statement:</b> ami kisu pari na</Typography>
                 <Typography><b>Author:</b>Farhana Islam</Typography>
                 <Typography><b>Date:</b>21.05.2001</Typography>
-                <Button color={'primary'} variant={'contained'}>View Solution</Button>
+                <Button color={'primary'} variant={'contained'} style={{background:"black"}}>View Solution</Button>
             </Box>
         </Card>
     );

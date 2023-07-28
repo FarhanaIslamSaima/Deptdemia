@@ -1,12 +1,14 @@
 import React from 'react';
 import Body from './HomeBody/Body';
+import { Grid } from '@mui/material';
 
 const Home = () => {
     return (
-        <>
-        
-        <Body/>
-        </>
+       <Grid container>
+        <Grid item sx={12} xs={12}>
+            <Body></Body>
+        </Grid>
+       </Grid>
     );
 };
 

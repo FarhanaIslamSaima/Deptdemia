@@ -45,17 +45,20 @@ const Login=() =>{
     const {email, password} = formData;
     try {
       const auth = getAuth();
-      const userCredential = await signInWithEmailAndPassword(
+      try{
+         const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
-      if(!userCredential.user){
-        console.log("Error");
+      navigate("/");
+
       }
-      if (userCredential.user) {
-        navigate("/");
+      catch(error){
+        alert(error.message)
       }
+     
+    
     } catch (error) {
       toast.error("Bad user credentials");
     }

@@ -1,10 +1,15 @@
 import React from 'react';
+import { Grid } from '@mui/material';
+import ContributeBody from './ContributeBody';
 
 const Contribute = () => {
     return (
-        <div>
-            This is contribute folder...
-        </div>
+        <Grid container>
+            <Grid item sm={12} xs={12}>
+                <ContributeBody></ContributeBody>
+
+            </Grid>
+        </Grid>
     );
 };
 

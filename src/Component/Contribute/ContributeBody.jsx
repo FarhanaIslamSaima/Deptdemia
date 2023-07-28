@@ -4,7 +4,8 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
-const QueryBody = () => {
+
+const ContributeBody = () => {
     const subOption=[
         {label:'Physics',id:1},
         {label:'Chemistry',id:2},
@@ -29,21 +30,17 @@ const QueryBody = () => {
 
     }
     console.log(value)
-
-	
     return (
+       <Box sx={{
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop:"50px",
+        flexDirection:"column"
+        
+       }}>
+        <Typography sx={{fontWeight:"bold"}} variant={'h5'}>Anything you want to contribute</Typography>
         <Box sx={{
-            display:'flex',
-            justifyContent:'center',
-            alignItems:'center',
-            width:'100%',
-            marginTop:'50px',
-            flexDirection:'column',
-          
-        }}>
-       
-            <Typography sx={{fontWeight:'bold'} } variant={'h5'}>Place your Query Here...</Typography>
-           <Box sx={{
             padding:'10px',
             '&>*':{
                 margin:"10px"
@@ -108,10 +105,9 @@ const QueryBody = () => {
         
 
            </Box>
-       
 
-        </Box>
+       </Box>
     );
 };
 
-export default QueryBody;
+export default ContributeBody;

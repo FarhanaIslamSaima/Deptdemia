@@ -67,7 +67,7 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            DEPTDEMIA
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

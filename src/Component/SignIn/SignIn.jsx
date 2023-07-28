@@ -75,7 +75,7 @@ const Signup=()=>{
         firstName: data.get('firstName'),
         lastName: data.get('lastName'),
       });
-      navigate("/");
+      navigate("/login");
   
     }catch(error){
         console.log(error);

@@ -50,10 +50,11 @@ const Login=() =>{
         email,
         password
       );
+      if(!userCredential.user){
+        console.log("Error");
+      }
       if (userCredential.user) {
         navigate("/");
-      }else{
-        toast.error("Email or Password is wrong");
       }
     } catch (error) {
       toast.error("Bad user credentials");

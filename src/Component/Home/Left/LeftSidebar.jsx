@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
+import LeftSIdeBody from './LeftSIdeBody';
 const pages = ['Physics', 'Chemistry','Math','Biology'];
 const LeftSidebar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -81,7 +82,7 @@ const LeftSidebar = () => {
         </Menu>
         </Box>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-      <Typography>THis is left</Typography>
+     <LeftSIdeBody></LeftSIdeBody>
       </Box>
       </Container>
 

@@ -12,12 +12,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { setUserId } from 'firebase/analytics';
-import { useContext } from 'react';
+import { useContext,useEffect } from 'react';
 import { UserContext } from '../../Context/AccountContext';
+
 
 function Copyright(props) {
   return (
@@ -56,7 +57,10 @@ const Login=() =>{
         email,
         password
       );
-      setUser(auth.currentUser.providerData)
+     
+     
+      
+      
       navigate("/")
 
       

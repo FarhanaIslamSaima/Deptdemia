@@ -4,7 +4,11 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
+import { useContext } from 'react';
+import { UserContext } from '../../Context/AccountContext';
 const QueryBody = () => {
+    const {User}=useContext(UserContext);
+    //in user you will find the current logged in user info
     const subOption=[
         {label:'Physics',id:1},
         {label:'Chemistry',id:2},

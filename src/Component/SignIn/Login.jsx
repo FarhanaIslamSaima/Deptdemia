@@ -45,13 +45,16 @@ const Login=() =>{
     const {email, password} = formData;
     try {
       const auth = getAuth();
+     
       try{
          const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
-      navigate("/");
+      console.log(auth.currentUser.providerData);
+      navigate("/")
+   
 
       }
       catch(error){

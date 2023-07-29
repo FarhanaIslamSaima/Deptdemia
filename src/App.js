@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     
-  
+  <AccountContext>
    <BrowserRouter>
    <Header/>
    
@@ -40,6 +40,7 @@ function App() {
    
    
    </BrowserRouter>
+   </AccountContext>
    </>
   
   );

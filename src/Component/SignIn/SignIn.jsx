@@ -46,13 +46,12 @@ const Signup=()=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const formData = {
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
+      displayName: data.get('displayName'),
       email: data.get('email'),
       password: data.get('password'),
     };
     
-    const { firstName, lastName, email, password } = formData;
+    const { displayName,  email, password } = formData;
     
     try{
       const auth = getAuth();
@@ -62,19 +61,24 @@ const Signup=()=>{
         password
       );
       updateProfile(auth.currentUser, {
-        firstName: firstName,
-        lastName: lastName,
+        displayName: displayName,
       })
       const user = userCredential.user;
+
       const formDataCopy = { ...formData };
+      formDataCopy.UID = user.uid;
       formDataCopy.timestamp = serverTimestamp();
       await setDoc(doc(db, "users", user.uid), formDataCopy);
-      console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-        firstName: data.get('firstName'),
-        lastName: data.get('lastName'),
-      });
+      console.log(formDataCopy);
+      console.log("-----------------------");
+      console.log(user);
+        //{
+        // email: data.get('email'),
+        // password: data.get('password'),
+        // firstName: data.get('firstName'),
+        // lastName: data.get('lastName'),
+      //}
+      
       navigate("/login");
   
     }catch(error){
@@ -103,27 +107,18 @@ const Signup=()=>{
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="displayName"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="displayName"
+                  label="User Name"
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required

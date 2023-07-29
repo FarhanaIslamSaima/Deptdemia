@@ -23,7 +23,7 @@ const LeftSIdeBody = () => {
             display:'flex',
             justifyContent:'center',
             alignItems:'center'
-        }} variant={'h5'}>Contributions</Typography>
+        }} variant={'h5'}>Solutions</Typography>
         <Box sx={{
             marginTop:'10px'
         }}>

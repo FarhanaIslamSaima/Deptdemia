@@ -6,8 +6,10 @@ import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/AccountContext';
+
 const QueryBody = () => {
     const {User}=useContext(UserContext);
+    
     //in user you will find the current logged in user info
     const subOption=[
         {label:'Physics',id:1},
@@ -98,6 +100,8 @@ const QueryBody = () => {
           
          
         </Select>
+        
+
     <input type="file"/>
     <JoditEditor
 			ref={editor}
@@ -107,6 +111,7 @@ const QueryBody = () => {
 			//onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
 			onChange={newContent => {setValue({...value,'content':newContent})}}
 		/>
+    
         <Button variant={'contained'} color={'primary'}>Submit</Button>
     
         

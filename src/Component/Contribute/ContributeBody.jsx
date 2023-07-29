@@ -65,7 +65,8 @@ const ContributeBody = () => {
     file&&uploadFile();
     console.log(progress)
     },[file])
-   const handleChange=()=>{
+   const handleChange=(e)=>{
+    setValue({...value,[e.target.name]:e.target.value})
     
    }
     return (
@@ -82,8 +83,14 @@ const ContributeBody = () => {
             padding:'10px',
             '&>*':{
                 margin:"10px"
-            }
-           }}>
+            },
+            display:'flex',
+            flexDirection:'column',
+            width:'80%',
+    
+           }
+           
+           }>
             
              
      <Select
@@ -129,15 +136,14 @@ const ContributeBody = () => {
           
          
         </Select>
+        <TextField id="outlined-basic" label="Your problem statement" variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
+          
+
+
+        }}/>
+
     <input type="file" onChange={(e)=>setFile(e.target.files[0])}/>
-    <JoditEditor
-			ref={editor}
-			value={content}
-			//config={config}
-			tabIndex={1} // tabIndex of textarea
-			//onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-			onChange={newContent => {setValue({...value,'content':newContent})}}
-		/>
+   
         <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100}>Submit</Button>
     
         

@@ -15,6 +15,8 @@ import Login from "./Component/SignIn/Login";
 import Signup from "./Component/SignIn/SignIn";
 import Physics from "./Component/Home/Left/Subjects/Physics/Physics";
 import AccountContext from "./Context/AccountContext";
+import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
+import Profile from "./Component/PrivateRoute/Profile";
 
 
 function App() {
@@ -28,6 +30,9 @@ function App() {
    
   <Routes>
     <Route exact path="/" element={<Home/>}></Route>
+    <Route path="/profile" element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+      </Route>
   <Route exact path="/Query" element={<QueryHome/>}></Route>
   <Route exact path="/Contribute" element={<Contribute/>}></Route>
   <Route exact path="/login" element={<Login></Login>}></Route>

@@ -64,7 +64,6 @@ const Signup=()=>{
         displayName: displayName,
       })
       const user = userCredential.user;
-
       const formDataCopy = { ...formData };
       formDataCopy.UID = user.uid;
       formDataCopy.timestamp = serverTimestamp();

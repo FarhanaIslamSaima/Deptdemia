@@ -49,20 +49,22 @@ const QueryBody = () => {
                 margin:"10px"
             }
            }}>
-            
-             
+    
+    <FormControl fullWidth>      
+    <InputLabel id="demo-simple-select-label">Subject</InputLabel>       
      <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
-          sx={{
-            display:'flex',
-            flexDirection:"column",
-            justifyContent:'center',
-                    alignItems:'center',
-                    color:'black'
+          
+        //   sx={{
+        //     display:'flex',
+        //     flexDirection:"column",
+        //     justifyContent:'center',
+        //             alignItems:'center',
+        //             color:'black'
                    
-          }}
+        //   }}
           label="Age"
           name="option"
            
@@ -93,7 +95,9 @@ const QueryBody = () => {
         }
           
          
-        </Select>
+    </Select>
+    </FormControl>
+
     <input type="file"/>
     <JoditEditor
 			ref={editor}

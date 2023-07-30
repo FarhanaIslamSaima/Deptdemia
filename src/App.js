@@ -16,7 +16,9 @@ import Signup from "./Component/SignIn/SignIn";
 import Physics from "./Component/Home/Left/Subjects/Physics/Physics";
 import AccountContext from "./Context/AccountContext";
 
+
 function App() {
+
   return (
     <>
     

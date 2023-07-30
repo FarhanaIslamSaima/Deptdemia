@@ -4,7 +4,13 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
+import { useContext } from 'react';
+import { UserContext } from '../../Context/AccountContext';
+
 const QueryBody = () => {
+    const {User}=useContext(UserContext);
+    
+    //in user you will find the current logged in user info
     const subOption=[
         {label:'Physics',id:1},
         {label:'Chemistry',id:2},
@@ -49,22 +55,20 @@ const QueryBody = () => {
                 margin:"10px"
             }
            }}>
-    
-    <FormControl fullWidth>      
-    <InputLabel id="demo-simple-select-label">Subject</InputLabel>       
+            
+             
      <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
-          
-        //   sx={{
-        //     display:'flex',
-        //     flexDirection:"column",
-        //     justifyContent:'center',
-        //             alignItems:'center',
-        //             color:'black'
+          sx={{
+            display:'flex',
+            flexDirection:"column",
+            justifyContent:'center',
+                    alignItems:'center',
+                    color:'black'
                    
-        //   }}
+          }}
           label="Age"
           name="option"
            
@@ -95,8 +99,8 @@ const QueryBody = () => {
         }
           
          
-    </Select>
-    </FormControl>
+        </Select>
+        
 
     <input type="file"/>
     <JoditEditor
@@ -107,6 +111,7 @@ const QueryBody = () => {
 			//onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
 			onChange={newContent => {setValue({...value,'content':newContent})}}
 		/>
+    
         <Button variant={'contained'} color={'primary'}>Submit</Button>
     
         

@@ -37,18 +37,18 @@ const LeftSidebar = () => {
     return (
         <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },position:'absolute',right:'10px',top:'65px'}} >
-        <ArrowDropDownCircleIcon
-          fontSize='large'
-          aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
+        <Button
+         
           onClick={handleOpenNavMenu}
-          color="inherit"
-          cursor="pointer"
+       variant={'contained'}
+       color='primary'
+       sx={{
+        background:'black'
+       }}
        
         >
-          <MenuIcon />
-        </ArrowDropDownCircleIcon>
+          Solutions
+        </Button>
         <Menu
           id="menu-appbar"
           anchorEl={anchorElNav}
@@ -70,7 +70,7 @@ const LeftSidebar = () => {
         >
            {pages.map((page)=>(
               <MenuItem  onClick={handleCloseNavMenu}>
-             <Link to={page}><Typography textAlign="center">{page}</Typography></Link> 
+             <Link to={page} style={{textDecoration:'none',color:'black', fontWeight:'bold'}} ><Typography textAlign="center" sx={{fontWeight:'bold'}}>{page}</Typography></Link> 
              
             </MenuItem>
 

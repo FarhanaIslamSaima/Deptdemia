@@ -7,10 +7,12 @@ export const UserContext=createContext(null);
 
 const AccountContext = ({children}) => {
     const [User,setUser]=useState(null)
+    const [login,setlogin]=useState(false);
     
        const auth=getAuth()
         onAuthStateChanged(auth, (user) => {
           if (user) {
+            setlogin(true);
             console.log(user)
             setUser(auth.currentUser.providerData)
            
@@ -36,7 +38,7 @@ const AccountContext = ({children}) => {
     
     return (
         <UserContext.Provider value={{
-            User,setUser
+            User,setUser,login,setlogin
         }}>
             {children}
 

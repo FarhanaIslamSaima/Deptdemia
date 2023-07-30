@@ -1,9 +1,12 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
 import { Box, Typography,Grid, Button ,Select,InputLabel, FormControl} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
+import { v4 } from 'uuid';
+import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
+import { storage } from '../../firebase';
 
 const ContributeBody = () => {
     const subOption=[
@@ -23,13 +26,49 @@ const ContributeBody = () => {
     }
     const [value,setValue]=useState();
     const [subject,setSubject]=useState();
-
-    const handleChange=(e)=>{
-        setValue({...value,[e.target.name]:e.target.value})
-       
-
-    }
+    const [file,setFile]=useState();
     console.log(value)
+    const [progress,setProgress]=useState(null);
+    console.log(progress)
+ 
+    useEffect(()=>{
+        const uploadFile=()=>{
+            const name=new Date().getTime()+file.name;
+            const storageRef=ref(storage,file.name);
+            const uploadTask=uploadBytesResumable(storageRef,file);
+            uploadTask.on("state_changed",(snapshot)=>{
+                const progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+                setProgress(progress);
+                switch(snapshot.state){
+                    case "paused":
+                        console.log("Upload is paused");
+                        break;
+                        case "running":
+                            console.log("Upload is running");
+                            break;
+                            default:
+                                break;
+                }
+
+            },(error)=>{
+                console.log(error)
+            },
+            ()=>{
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
+                    setValue((prev=>({...prev,file:downloadURL})))
+                })
+            }
+            
+            )
+        }
+
+    file&&uploadFile();
+    console.log(progress)
+    },[file])
+   const handleChange=(e)=>{
+    setValue({...value,[e.target.name]:e.target.value})
+    
+   }
     return (
        <Box sx={{
         display:'flex',
@@ -44,8 +83,14 @@ const ContributeBody = () => {
             padding:'10px',
             '&>*':{
                 margin:"10px"
-            }
-           }}>
+            },
+            display:'flex',
+            flexDirection:'column',
+            width:'80%',
+    
+           }
+           
+           }>
             
              
      <Select
@@ -91,16 +136,15 @@ const ContributeBody = () => {
           
          
         </Select>
-    <input type="file"/>
-    <JoditEditor
-			ref={editor}
-			value={content}
-			//config={config}
-			tabIndex={1} // tabIndex of textarea
-			//onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-			onChange={newContent => {setValue({...value,'content':newContent})}}
-		/>
-        <Button variant={'contained'} color={'primary'}>Submit</Button>
+        <TextField id="outlined-basic" label="Your problem statement" variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
+          
+
+
+        }}/>
+
+    <input type="file" onChange={(e)=>setFile(e.target.files[0])}/>
+   
+        <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100}>Submit</Button>
     
         
 

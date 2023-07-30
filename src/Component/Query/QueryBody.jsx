@@ -9,6 +9,7 @@ import { UserContext } from '../../Context/AccountContext';
 
 const QueryBody = () => {
     const {User}=useContext(UserContext);
+    console.log(User)
     
     //in user you will find the current logged in user info
     const subOption=[

@@ -8,25 +8,21 @@ export const UserContext=createContext(null);
 const AccountContext = ({children}) => {
     const [User,setUser]=useState(null)
     const [login,setlogin]=useState(false);
+   
+useEffect(()=>{
+  const auth=getAuth();
+  auth.onAuthStateChanged(setUser);
+
+},[])
+    console.log(User);
     
-       const auth=getAuth()
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            setlogin(true);
-            console.log(user)
-            setUser(auth.currentUser.providerData)
-           
-          } else {
-            setUser(null);
-            
-          }
-        });
+      
 
       
-    if(User!=null){
-        console.log(User[0].displayName)
+    
+       
 
-    }
+    
       
 
       

@@ -7,8 +7,13 @@ import MenuItem from '@mui/material/MenuItem';
 import { v4 } from 'uuid';
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../firebase';
+import { useContext } from 'react';
+import { UserContext } from '../../Context/AccountContext';
+import { handleElement } from '../../Actions/AddElement';
 
 const ContributeBody = () => {
+    const {User,setUser}=useContext(UserContext);
+    console.log(User.displayName);
     const subOption=[
         {label:'Physics',id:1},
         {label:'Chemistry',id:2},
@@ -30,6 +35,7 @@ const ContributeBody = () => {
     console.log(value)
     const [progress,setProgress]=useState(null);
     console.log(progress)
+    
  
     useEffect(()=>{
         const uploadFile=()=>{
@@ -67,7 +73,19 @@ const ContributeBody = () => {
     },[file])
    const handleChange=(e)=>{
     setValue({...value,[e.target.name]:e.target.value})
+    setValue((prev=>({...prev,author:User.displayName})))
     
+   }
+   const handleSubmit=async()=>{
+    try{
+        await handleElement(value);
+
+    }
+    catch(error){
+        console.log(error);
+    }
+    
+
    }
     return (
        <Box sx={{
@@ -144,7 +162,7 @@ const ContributeBody = () => {
 
     <input type="file" onChange={(e)=>setFile(e.target.files[0])}/>
    
-        <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100}>Submit</Button>
+        <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
     
         
 

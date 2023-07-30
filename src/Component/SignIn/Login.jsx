@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { browserLocalPersistence, browserSessionPersistence, getAuth, setPersistence, signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../Context/AccountContext';
 
 function Copyright(props) {
   return (
@@ -34,6 +36,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 const Login=() =>{
+  const {User,setUser}=useContext(UserContext)
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -52,7 +55,8 @@ const Login=() =>{
          email,
          password
        );
-       navigate("/");
+       navigate("/")
+       
  
        }
        catch(error){

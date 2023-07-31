@@ -15,8 +15,10 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import LeftSIdeBody from './LeftSIdeBody';
-const pages = ['Physics', 'Chemistry','Math','Biology'];
+const pages = ['Physics','Chemistry','Math','Biology'];
+
 const LeftSidebar = () => {
+  var i=0;
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
   
@@ -68,9 +70,11 @@ const LeftSidebar = () => {
             width:'300px'
           }}
         >
-           {pages.map((page)=>(
+           { pages.map((page)=>(
+           
+             
               <MenuItem  onClick={handleCloseNavMenu}>
-             <Link to={page} style={{textDecoration:'none',color:'black', fontWeight:'bold'}} ><Typography textAlign="center" sx={{fontWeight:'bold'}}>{page}</Typography></Link> 
+             <Link to={`/subject/${i++}`} style={{textDecoration:'none',color:'black', fontWeight:'bold'}} ><Typography textAlign="center" sx={{fontWeight:'bold'}}>{page}</Typography></Link> 
              
             </MenuItem>
 

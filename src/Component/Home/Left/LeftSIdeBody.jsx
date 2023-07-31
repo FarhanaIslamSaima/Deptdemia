@@ -5,8 +5,9 @@ import { BorderBottomOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import Physics from './Subjects/Physics/Physics';
 
-const Subject=['Physics','Chemistry','Math','English']
+const Subject=['Physics','Chemistry','Math','Biology']
 const LeftSIdeBody = () => {
+    var i=1;
     return (
        <Box sx={{
         display:'flex',
@@ -28,7 +29,7 @@ const LeftSIdeBody = () => {
             marginTop:'10px'
         }}>
             {Subject.map(item=>(
-                     <Link to={item} style={{textDecoration: 'none', color:'black'}}> <Box sx={{
+                     <Link to={`subject/${i++}`} style={{textDecoration: 'none', color:'black'}}> <Box sx={{
                         padding:'10px',
                         display:"flex",
                         borderBottom:'1px solid #d5d5d5',

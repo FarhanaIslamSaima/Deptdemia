@@ -1,5 +1,6 @@
 import Header from "./Component/Header/Header";
 import Contribute from "./Component/Contribute/Contribute";
+import Subject from "./Component/Home/Left/Subjects/Subject";
 import {
   BrowserRouter,
   Switch,
@@ -39,7 +40,7 @@ function App() {
   
   <Route exact path="/login" element={<Login></Login>}></Route>
   <Route exact path="/signup" element={<Signup></Signup>}></Route>
-  <Route exact path="/Physics" element={<Physics/>}></Route>
+  <Route exact path="/subject/:id" element={<Subject/>}></Route>
 
   </Routes>
 

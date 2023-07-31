@@ -57,7 +57,7 @@ const QueryBody = () => {
             }
            }}>
             
-             
+    <InputLabel id="demo-simple-select-label">Course</InputLabel>       
      <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

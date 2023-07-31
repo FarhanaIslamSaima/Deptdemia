@@ -55,36 +55,18 @@ const Subject = () => {
 
          
         <Grid container>
-            <Grid item xs={12} sm={12} lg={4}>
-                <SubjectBody/>
-               
+            {
+                sub.map(item=>(
+                    <Grid item xs={12} sm={12} lg={4}>
+                    <SubjectBody item={item}/>
+                   
+    
+                </Grid>
 
-            </Grid>
-            <Grid item xs={12} sm={12} lg={4}>
-                <SubjectBody/>
-               
-
-            </Grid>
-            <Grid item xs={12} sm={12} lg={4}>
-                <SubjectBody/>
-               
-
-            </Grid>
-            <Grid item xs={12} sm={12} lg={4}>
-                <SubjectBody/>
-               
-
-            </Grid>
-            <Grid item xs={12} sm={12} lg={4}>
-                <SubjectBody/>
-               
-
-            </Grid>
-            <Grid item xs={12} sm={12} lg={4}>
-                <SubjectBody/>
-               
-
-            </Grid>
+                ))
+            }
+           
+          
            
             
             

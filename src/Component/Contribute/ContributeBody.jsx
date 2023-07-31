@@ -144,7 +144,7 @@ const ContributeBody = () => {
             
              }}
                 
-                value={item.id} name="option"><Typography sx={{
+                value={item.label} name="option"><Typography sx={{
                    display:'flex',
                    justifyContent:'center'
                 }}>{item.label}</Typography></MenuItem>

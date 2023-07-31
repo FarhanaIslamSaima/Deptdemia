@@ -7,24 +7,36 @@ import { getElement } from '../../../../Actions/GetElement';
 import { ContactPageSharp } from '@mui/icons-material';
 import { db } from '../../../../firebase';
 import {collection,where,query,ref, onSnapshot} from 'firebase/firestore'
+import { useState } from 'react';
 const Subject = () => {
-    const {id}=useParams();
-    console.log(id)
+    const {subject}=useParams();
+    const [sub,setSub]=useState([]);
+    console.log(sub)
+    
+    
     useEffect(()=>{
-        const colref=collection(db,'Contribution');
-        const q=query(colref,where("option","==",1));
+        const colRef=collection(db,'Contribution');
+        const q=query(colRef,where("option","==",subject));
         onSnapshot(q,(snapshot)=>{
             let book=[];
             snapshot.docs.forEach((doc)=>{
-                book.push({...doc.data(),id:doc.id})
+                
+                book.push({...doc.data(),id:doc.id});
             })
-            console.log(book);
+            
+            setSub(book)
+           
+
         })
+       
+       
+
+       
 
        
 
     },[])
-    console.log(id)
+    
     return (
         <Box sx={{
             margin:"20px",

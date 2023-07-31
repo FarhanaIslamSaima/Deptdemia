@@ -74,7 +74,7 @@ const LeftSidebar = () => {
            
              
               <MenuItem  onClick={handleCloseNavMenu}>
-             <Link to={`/subject/${i++}`} style={{textDecoration:'none',color:'black', fontWeight:'bold'}} ><Typography textAlign="center" sx={{fontWeight:'bold'}}>{page}</Typography></Link> 
+             <Link to={`/subject/${page}`} style={{textDecoration:'none',color:'black', fontWeight:'bold'}} ><Typography textAlign="center" sx={{fontWeight:'bold'}}>{page}</Typography></Link> 
              
             </MenuItem>
 

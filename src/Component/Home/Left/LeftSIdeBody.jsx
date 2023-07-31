@@ -29,7 +29,7 @@ const LeftSIdeBody = () => {
             marginTop:'10px'
         }}>
             {Subject.map(item=>(
-                     <Link to={`subject/${i++}`} style={{textDecoration: 'none', color:'black'}}> <Box sx={{
+                     <Link to={`subject/${item}`} style={{textDecoration: 'none', color:'black'}}> <Box sx={{
                         padding:'10px',
                         display:"flex",
                         borderBottom:'1px solid #d5d5d5',

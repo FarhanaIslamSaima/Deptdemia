@@ -40,7 +40,7 @@ function App() {
   
   <Route exact path="/login" element={<Login></Login>}></Route>
   <Route exact path="/signup" element={<Signup></Signup>}></Route>
-  <Route exact path="/subject/:id" element={<Subject/>}></Route>
+  <Route exact path="/subject/:subject" element={<Subject/>}></Route>
 
   </Routes>
 

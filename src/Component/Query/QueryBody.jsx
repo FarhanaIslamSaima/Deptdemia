@@ -52,27 +52,26 @@ const QueryBody = () => {
             <Typography sx={{fontWeight:'bold'} } variant={'h5'}>Place your Query Here...</Typography>
            <Box sx={{
             padding:'10px',
+           
             '&>*':{
                 margin:"10px"
-            }
+            },
+            display:'flex',
+            flexDirection:'column',
+            width:'80%',
            }}>
             
-    <InputLabel id="demo-simple-select-label">Course</InputLabel>       
-     <Select
+   
+    <TextField
+     select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
-          sx={{
-            display:'flex',
-            flexDirection:"column",
-            justifyContent:'center',
-                    alignItems:'center',
-                    color:'black'
-                   
-          }}
-          label="Age"
+          
+         
+          label="Course"
           name="option"
-           
+           sx={{marginBottom:'10px'}}
        
           onChange={handleChange}
          
@@ -84,23 +83,22 @@ const QueryBody = () => {
                 
                
                 <MenuItem sx={{ 
-                    display:"flex",
+                    
 
                     
             
             
              }}
                 
-                value={item.id} name="option"><Typography sx={{
-                   display:'flex',
-                   justifyContent:'center'
+                value={item.label} name="option"><Typography sx={{
+                    display:'flex'
                 }}>{item.label}</Typography></MenuItem>
                
             ))
         }
           
          
-        </Select>
+        </TextField>
         
 
     <input type="file"/>

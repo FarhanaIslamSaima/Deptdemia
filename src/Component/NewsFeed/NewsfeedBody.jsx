@@ -10,9 +10,11 @@ const NewsfeedBody = () => {
         /* From https://css.glass */
 background: 'rgba(216, 216, 216, 0.16)',
 borderRadius: '16px',
-boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+boxShadow: '8px -5px 12px 0px rgba(0,0,0,0.2)',
 backdropFilter: 'blur(3.7px)',
 border: '1px solid rgba(216, 216, 216, 0.9)'
+
+
         
      }}>
         <Box sx={{
@@ -33,13 +35,13 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                 justifyContent:'space-between'
             }}>
                 <Box sx={{
-                    width:'70%'
+                    width:'50%'
                 }}>
                 <Button variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>Solution</Button>
                 </Box>
                 <Box sx={{
                     
-                    width:'30%'
+                    width:'50%'
                 }}>
                     <Button variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit Solution</Button>
                 </Box>

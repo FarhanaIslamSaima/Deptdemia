@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid,Box, Typography,Card ,Button} from '@mui/material';
+import Contribute from '../Contribute/Contribute';
+import { Link } from "react-router-dom";
 
 
 const NewsfeedBody = () => {
@@ -43,7 +45,7 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                     
                     width:'50%'
                 }}>
-                    <Button variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit Solution</Button>
+                    <Button component={Link} to={`/Contribute`}variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit Solution</Button>
                 </Box>
 
             </Box>

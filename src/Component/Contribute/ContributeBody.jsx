@@ -10,8 +10,10 @@ import { storage } from '../../firebase';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/AccountContext';
 import { handleElement } from '../../Actions/AddElement';
+import { useNavigate } from 'react-router-dom';
 
 const ContributeBody = () => {
+    const navigate=useNavigate();
     const {User,setUser}=useContext(UserContext);
     console.log(User.displayName);
     const subOption=[
@@ -79,6 +81,8 @@ const ContributeBody = () => {
    const handleSubmit=async()=>{
     try{
         await handleElement(value);
+        alert("Contribution uploaded successfully")
+    navigate('/');
 
     }
     catch(error){

@@ -6,8 +6,12 @@ import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/AccountContext';
+import { Navigate } from 'react-router-dom';
 
 const QueryBody = () => {
+    let x=Math.floor(Math.random()*100000);
+    console.log(x);
+    let text=x.toString();
     const {User}=useContext(UserContext);
     console.log(User)
     
@@ -60,7 +64,7 @@ const QueryBody = () => {
             flexDirection:'column',
             width:'80%',
            }}>
-            
+            <Typography sx={{marginBottom:'10px'}}><b>Problem Set Code:</b>{text}</Typography>
    
     <TextField
      select

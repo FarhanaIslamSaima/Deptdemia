@@ -43,7 +43,8 @@ const Header = () => {
     <AppBar position="static"
     sx={
       {
-         background:'black'
+        background:'black'
+
       }
     }
     

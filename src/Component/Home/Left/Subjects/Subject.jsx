@@ -7,6 +7,7 @@ import { getElement } from '../../../../Actions/GetElement';
 import { ContactPageSharp } from '@mui/icons-material';
 import { db } from '../../../../firebase';
 import {collection,where,query,ref, onSnapshot} from 'firebase/firestore'
+import pic from './assets/pic.jpg'
 import { useState } from 'react';
 const Subject = () => {
     const {subject}=useParams();
@@ -39,7 +40,10 @@ const Subject = () => {
     
     return (
         <Box sx={{
-            margin:"20px",
+         
+            background:`url(${pic}) no-repeat center center fixed`,
+            width:'100%',
+            height:'1000px'
             
            
         }}>
@@ -47,10 +51,12 @@ const Subject = () => {
                 display:"flex",
                 justifyContent:'center',
                 alignItems:'center',
-                marginBottom:"10px"
+                marginBottom:"10px",
+                marginTop:'10px'
+
             }}>FIND YOUR DESIRE PHYSICS SOLUTION :</Typography>
             <Box sx={{
-                border:'2px solid black'
+               
             }}>
 
          

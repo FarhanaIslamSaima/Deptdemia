@@ -18,19 +18,26 @@ import Physics from "./Component/Home/Left/Subjects/Physics/Physics";
 import AccountContext from "./Context/AccountContext";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 import Profile from "./Component/PrivateRoute/Profile";
+import GlobalStyleOverrides from "./ThemeProvider/Theme";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
 function App() {
 
   return (
-    <>
+    <ThemeProvider theme={GlobalStyleOverrides()}>
+    
+    
     
   <AccountContext>
    <BrowserRouter>
    <Header/>
+  
    
   <Routes>
+  
     <Route exact path="/" element={<Home/>}></Route>
+    
     <Route path="/" element={<PrivateRoute />}>
             <Route path="/home" element={<Home />} />
             <Route  path="/Contribute" element={<Contribute/>}></Route>
@@ -46,12 +53,14 @@ function App() {
 
   
     
-    
+  
    
    
    </BrowserRouter>
    </AccountContext>
-   </>
+   </ThemeProvider>
+   
+ 
   
   );
 }

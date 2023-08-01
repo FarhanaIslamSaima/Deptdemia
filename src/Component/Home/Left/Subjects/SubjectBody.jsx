@@ -31,7 +31,12 @@ const SubjectBody = ({item}) => {
     return (
         <Card sx={{
             border:'2px solid black',
-            margin:"10px"
+            margin:"10px",
+            background: 'rgba(216, 216, 216, 0.16)',
+borderRadius: '16px',
+boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+backdropFilter: 'blur(3.7px)',
+border: '2px solid rgba(216, 216, 216, 1.5)'
         }}>
 
             <Box sx={{

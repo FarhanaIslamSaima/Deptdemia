@@ -10,8 +10,10 @@ import { storage } from '../../firebase';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/AccountContext';
 import { handleElement } from '../../Actions/AddElement';
+import { useNavigate } from 'react-router-dom';
 
 const ContributeBody = () => {
+    const navigate=useNavigate();
     const {User,setUser}=useContext(UserContext);
     console.log(User.displayName);
     const subOption=[
@@ -79,6 +81,8 @@ const ContributeBody = () => {
    const handleSubmit=async()=>{
     try{
         await handleElement(value);
+        alert("Contribution uploaded successfully")
+    navigate('/');
 
     }
     catch(error){
@@ -93,7 +97,8 @@ const ContributeBody = () => {
         justifyContent:'center',
         alignItems:'center',
         marginTop:"50px",
-        flexDirection:"column"
+        flexDirection:"column",
+       
         
        }}>
         <Typography sx={{fontWeight:"bold"}} variant={'h5'}>Anything you want to contribute</Typography>
@@ -110,22 +115,17 @@ const ContributeBody = () => {
            
            }>
             
-            <InputLabel id="demo-simple-select-label">Course</InputLabel>             
-     <Select
+           
+     <TextField
+     select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
-          sx={{
-            display:'flex',
-            flexDirection:"column",
-            justifyContent:'center',
-                    alignItems:'center',
-                    color:'black'
-                   
-          }}
-          label="Age"
+          
+         
+          label="Course"
           name="option"
-           
+           sx={{marginBottom:'10px'}}
        
           onChange={handleChange}
          
@@ -137,24 +137,23 @@ const ContributeBody = () => {
                 
                
                 <MenuItem sx={{ 
-                    display:"flex",
+                    
 
                     
             
             
              }}
                 
-                value={item.id} name="option"><Typography sx={{
-                   display:'flex',
-                   justifyContent:'center'
+                value={item.label} name="option"><Typography sx={{
+                    display:'flex'
                 }}>{item.label}</Typography></MenuItem>
                
             ))
         }
           
          
-        </Select>
-        <TextField id="outlined-basic" label="Your problem statement" variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
+        </TextField>
+        <TextField required id="outlined-basic" label="Your problem statement" variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
           
 
 

@@ -6,8 +6,12 @@ import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/AccountContext';
+import { Navigate } from 'react-router-dom';
 
 const QueryBody = () => {
+    let x=Math.floor(Math.random()*100000);
+    console.log(x);
+    let text=x.toString();
     const {User}=useContext(UserContext);
     console.log(User)
     
@@ -52,27 +56,26 @@ const QueryBody = () => {
             <Typography sx={{fontWeight:'bold'} } variant={'h5'}>Place your Query Here...</Typography>
            <Box sx={{
             padding:'10px',
+           
             '&>*':{
                 margin:"10px"
-            }
+            },
+            display:'flex',
+            flexDirection:'column',
+            width:'80%',
            }}>
-            
-    <InputLabel id="demo-simple-select-label">Course</InputLabel>       
-     <Select
+            <Typography sx={{marginBottom:'10px'}}><b>Problem Set Code:</b>{text}</Typography>
+   
+    <TextField
+     select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
-          sx={{
-            display:'flex',
-            flexDirection:"column",
-            justifyContent:'center',
-                    alignItems:'center',
-                    color:'black'
-                   
-          }}
-          label="Age"
+          
+         
+          label="Course"
           name="option"
-           
+           sx={{marginBottom:'10px'}}
        
           onChange={handleChange}
          
@@ -84,23 +87,22 @@ const QueryBody = () => {
                 
                
                 <MenuItem sx={{ 
-                    display:"flex",
+                    
 
                     
             
             
              }}
                 
-                value={item.id} name="option"><Typography sx={{
-                   display:'flex',
-                   justifyContent:'center'
+                value={item.label} name="option"><Typography sx={{
+                    display:'flex'
                 }}>{item.label}</Typography></MenuItem>
                
             ))
         }
           
          
-        </Select>
+        </TextField>
         
 
     <input type="file"/>

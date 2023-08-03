@@ -144,7 +144,7 @@ const Header = () => {
               <Link to={page} style={{textDecoration:'none'}}><Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block ' }}
               >
                 {page}
               </Button></Link>

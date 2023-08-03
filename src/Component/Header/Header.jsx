@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import { useAuthStatus } from "../../hooks/useAuthStatus";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const pages = ['Query', 'Contribute'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -24,6 +25,19 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Header = () => {
    const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  
+  const auth = getAuth();
+  const [pageState, setPageState] = React.useState("Sign in");
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState("Profile");
+      } else {
+        setPageState("Sign in");
+      }
+    });
+  }, [auth]);
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -152,11 +166,11 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-           <Link to={loggedIn? "/profile":"/login"}><Typography sx={{
+           <Link to={"/profile"}><Typography sx={{
               color:'white',
               textDecoration:'none'
 
-           }}>{loggedIn?"Profile":"Login"}</Typography></Link>
+           }}>{pageState}</Typography></Link>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

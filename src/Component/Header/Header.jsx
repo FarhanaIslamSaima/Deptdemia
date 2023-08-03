@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import { useAuthStatus } from "../../hooks/useAuthStatus";
 
 const pages = ['Query', 'Contribute'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -38,6 +39,11 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const { loggedIn, checkingStatus } = useAuthStatus();
+  if (checkingStatus) {
+    return <div>Loading</div>;
+  }
+
 
   return (
     <AppBar position="static"
@@ -145,11 +151,11 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-           <Link to={"/login"}><Typography sx={{
+           <Link to={loggedIn?"/profile":"/login"}><Typography sx={{
               color:'white',
               textDecoration:'none'
 
-           }}>LOGIN</Typography></Link>
+           }}>{loggedIn?"Profile":"Login"}</Typography></Link>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

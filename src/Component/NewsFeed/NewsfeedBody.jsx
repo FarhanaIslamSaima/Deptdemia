@@ -4,7 +4,7 @@ import Contribute from '../Contribute/Contribute';
 import { Link } from "react-router-dom";
 
 
-const NewsfeedBody = () => {
+const NewsfeedBody = ({item}) => {
     return (
      <Card sx={{
         margin:'10px',
@@ -27,10 +27,10 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                 margin:'2px'
             }
         }}>
-            <Typography><b>Author:</b> Farhana Islam</Typography>
-            <Typography><b>Subject:</b>Physics</Typography>
+            <Typography><b>Author:</b> {item.author}</Typography>
+            <Typography><b>Subject:</b>{item.option}</Typography>
             <Typography><b>Date:</b>21.05.2001</Typography>
-            <Typography><b>Problem statement:</b>amar main somossa ami kisu pari na. hok seta physics bangla. porashona charte chaile kivabe planning shuru kora uchit</Typography>
+            <Typography><b>Problem statement:</b>{item.content}</Typography>
             <Box sx={{
                 display:'flex',
                 width:'100%',

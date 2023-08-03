@@ -1,5 +1,5 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
-import { Box, Typography,Grid, Button ,Select,InputLabel, FormControl} from '@mui/material';
+import { Box, Typography,Grid, Button ,Select,InputLabel, FormControl,TextareaAutosize} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import JoditEditor from 'jodit-react';
@@ -37,9 +37,9 @@ const QueryBody = () => {
    const initialize={
         option:'',
         content:'',
-        img:''
+        file:''
     }
-    const [value,setValue]=useState();
+    const [value,setValue]=useState(initialize);
     const [subject,setSubject]=useState();
     const handleSubmit=async()=>{
         try{
@@ -161,14 +161,18 @@ useEffect(()=>{
         
 
     <input type="file" onChange={(e)=>Setfile(e.target.files[0])}/>
-    <JoditEditor
-			ref={editor}
-			value={content}
-			//config={config}
-			tabIndex={1} // tabIndex of textarea
-			//onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-			onChange={newContent => {setValue({...value,'content':newContent})}}
-		/>
+    <TextareaAutosize name="content" placeholder="Write your problem statement clearly in here..." minRows={5} onChange={(e)=>handleChange(e)}  sx={{
+                width:'100%',
+                border:'none',
+                fontSize:'20px',
+                height:'600px',
+                '&:focus-visible':{
+                    outline:'none'
+                }
+               
+        
+    }}       ></TextareaAutosize>
+              
     
         <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
     

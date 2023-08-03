@@ -1,6 +1,6 @@
 import { db } from "../firebase";
 
-import { collection,ref,query,where, onSnapshot } from "firebase/firestore";
+import { collection,ref,query,where, onSnapshot, getDocs } from "firebase/firestore";
 
 export const getElement=async(subject)=>{
     const colref=collection(db,'Contribution');
@@ -17,5 +17,26 @@ export const getElement=async(subject)=>{
 
     return book;
 
+
+}
+export const getAllQuery=async()=>{
+    try{
+        let res=[];
+        const ref=collection(db,'Query');
+        const docs_ref=await getDocs(ref);
+        docs_ref.forEach(query=>{
+            res.push({
+                id:query.id,
+                ...query.data()
+            })
+
+        })
+        return res;
+
+
+    }
+    catch(error){
+        return error;
+    }
 
 }

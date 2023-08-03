@@ -152,7 +152,7 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-           <Link to={"/login"}><Typography sx={{
+           <Link to={loggedIn? "/profile":"/login"}><Typography sx={{
               color:'white',
               textDecoration:'none'
 

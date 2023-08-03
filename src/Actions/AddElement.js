@@ -8,7 +8,8 @@ export const handleElement=(post)=>{
             option:post.option,
             author:post.author,
             title:post.title,
-            file:post.file
+            file:post.file,
+            authorId:post.authorId
 
         })
 
@@ -19,6 +20,7 @@ export const handleElement=(post)=>{
 }
 
 export const handleQuery=async(post)=>{
+    console.log(post);
     try{
         const colRef=collection(db,'Query');
         addDoc(colRef,{

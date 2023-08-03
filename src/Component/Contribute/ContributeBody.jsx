@@ -12,6 +12,7 @@ import { UserContext } from '../../Context/AccountContext';
 import { handleElement } from '../../Actions/AddElement';
 import { useNavigate } from 'react-router-dom';
 
+
 const ContributeBody = () => {
     const navigate=useNavigate();
     const {User,setUser}=useContext(UserContext);
@@ -76,6 +77,7 @@ const ContributeBody = () => {
    const handleChange=(e)=>{
     setValue({...value,[e.target.name]:e.target.value})
     setValue((prev=>({...prev,author:User.displayName})))
+    setValue((prev=>({...prev,authorId:User.uid})));
     
    }
    const handleSubmit=async()=>{

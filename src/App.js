@@ -36,7 +36,7 @@ function App() {
   
    
   <Routes>
-  
+
     <Route exact path="/" element={<Home/>}></Route>
     
     <Route path="/" element={<PrivateRoute />}>

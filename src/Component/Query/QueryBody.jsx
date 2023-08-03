@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
 import { Box, Typography,Grid, Button ,Select,InputLabel, FormControl} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -7,8 +7,13 @@ import MenuItem from '@mui/material/MenuItem';
 import { useContext } from 'react';
 import { UserContext } from '../../Context/AccountContext';
 import { Navigate } from 'react-router-dom';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { storage } from '../../firebase';
+import { handleQuery } from '../../Actions/AddElement';
+import { useNavigate } from 'react-router-dom';
 
 const QueryBody = () => {
+    const navigate=useNavigate();
     let x=Math.floor(Math.random()*100000);
     console.log(x);
     let text=x.toString();
@@ -26,7 +31,8 @@ const QueryBody = () => {
     const editor = useRef(null);
 	const [content, setContent] = useState('');
     const [file,Setfile]=useState();
-    const [progress,setProgress]=useState(false);
+    const [progress,setProgress]=useState(null);
+    console.log(file);
    
    const initialize={
         option:'',
@@ -35,13 +41,59 @@ const QueryBody = () => {
     }
     const [value,setValue]=useState();
     const [subject,setSubject]=useState();
+    const handleSubmit=async()=>{
+        try{
+            await handleQuery(value);
+            alert("Query Uploaded");
+            navigate("/");
+
+        }
+        catch(error){
+            console.log(error);
+        }
+
+    }
+   
 
     const handleChange=(e)=>{
         setValue({...value,[e.target.name]:e.target.value})
+        setValue((prev=>({...prev,author:User.displayName})))
+        setValue((prev=>({...prev,authorId:User.uid})))
        
 
     }
+useEffect(()=>{
+    const uploadFile=()=>{
+        const name=new Date().getTime()+file.name;
+        const storageRef=ref(storage,file.name);
+        const uploadTask=uploadBytesResumable(storageRef,file);
+        uploadTask.on("state_changed",(snapshot)=>{
+            const progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+            setProgress(progress);
+            switch(snapshot.state){
+                case "paused":
+                    console.log("Upload is paused");
+                    break;
+                    case "running":
+                        console.log("Upload is running");
+                        break;
+                        default:
+                            break;
+            }
 
+            }
+            ,(error)=>{
+                console.log(error);
+        },()=>{
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl)=>{
+                setValue((prev=>({...prev,file:downloadUrl})));
+            })
+        })
+
+
+    }
+    file&&uploadFile();
+},[file])
     console.log(value)
 
 	
@@ -108,7 +160,7 @@ const QueryBody = () => {
         </TextField>
         
 
-    <input type="file"/>
+    <input type="file" onChange={(e)=>Setfile(e.target.files[0])}/>
     <JoditEditor
 			ref={editor}
 			value={content}
@@ -118,7 +170,7 @@ const QueryBody = () => {
 			onChange={newContent => {setValue({...value,'content':newContent})}}
 		/>
     
-        <Button variant={'contained'} color={'primary'}>Submit</Button>
+        <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
     
         
 

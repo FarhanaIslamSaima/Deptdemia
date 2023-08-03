@@ -44,7 +44,9 @@ function App() {
             <Route  path="/Contribute" element={<Contribute/>}></Route>
             <Route exact path="/Query" element={<QueryHome/>}></Route>
       </Route>
- 
+      <Route path="/profile" element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+        </Route>
   
   <Route exact path="/login" element={<Login></Login>}></Route>
   <Route exact path="/signup" element={<Signup></Signup>}></Route>

@@ -22,7 +22,7 @@ export default function Profile() {
         <div>
             <input type="text" disabled value={email} /><br/>
             <input type="text"  disabled value={name} />
-            <button onSubmit={onLogout}>Logout</button>
+            <button onClick={onLogout}>Logout</button>
         </div>
     )
 }

@@ -12,13 +12,13 @@ const Body = () => {
             backgroundSize: 'cover'
         }}>
             <Box
-            sx={{width:'70%'}}
+            sx={{width:'80%'}}
             
             >
              <RightSidebar></RightSidebar>
             </Box>
             <Box
-            sx={{width:'30%'}}
+            sx={{width:'20%'}}
             >
               <LeftSidebar></LeftSidebar>
             </Box>

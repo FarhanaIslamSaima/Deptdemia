@@ -34,6 +34,10 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
             <Box sx={{
                 display:'flex',
                 width:'100%',
+                '&>*':{
+                    margin:'5px'
+
+                },
                 justifyContent:'space-between'
             }}>
                 <Box sx={{
@@ -42,10 +46,11 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                 <Button variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>Solution</Button>
                 </Box>
                 <Box sx={{
+         
                     
                     width:'50%'
                 }}>
-                    <Button component={Link} to={`/Contribute`}variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit Solution</Button>
+                    <Button component={Link} to={`/Contribute`}variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit</Button>
                 </Box>
 
             </Box>

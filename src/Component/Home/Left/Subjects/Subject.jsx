@@ -54,7 +54,7 @@ const Subject = () => {
                 marginBottom:"10px",
                 marginTop:'10px'
 
-            }}>FIND YOUR DESIRE PHYSICS SOLUTION :</Typography>
+            }}>FIND YOUR DESIRED SUBJECt SOLUTION :</Typography>
             <Box sx={{
                
             }}>

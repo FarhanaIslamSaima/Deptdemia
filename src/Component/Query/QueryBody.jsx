@@ -13,7 +13,7 @@ const QueryBody = () => {
     console.log(x);
     let text=x.toString();
     const {User}=useContext(UserContext);
-    console.log(User)
+    console.log(User.uid)
     
     //in user you will find the current logged in user info
     const subOption=[
@@ -25,6 +25,8 @@ const QueryBody = () => {
 
     const editor = useRef(null);
 	const [content, setContent] = useState('');
+    const [file,Setfile]=useState();
+    const [progress,setProgress]=useState(false);
    
    const initialize={
         option:'',
@@ -39,6 +41,7 @@ const QueryBody = () => {
        
 
     }
+
     console.log(value)
 
 	

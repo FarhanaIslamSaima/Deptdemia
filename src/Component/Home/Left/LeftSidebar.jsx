@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import LeftSIdeBody from './LeftSIdeBody';
+
 const pages = ['Physics','Chemistry','Math','Biology'];
 
 const LeftSidebar = () => {
@@ -39,18 +40,16 @@ const LeftSidebar = () => {
     return (
         <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },position:'absolute',right:'10px',top:'65px'}} >
-        <Button
-         
-          onClick={handleOpenNavMenu}
-       variant={'contained'}
-       color='primary'
-       sx={{
-        background:'black'
-       }}
-       
-        >
-          Solutions
-        </Button>
+        <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+        <MenuIcon/>
+        </IconButton>
         <Menu
           id="menu-appbar"
           anchorEl={anchorElNav}

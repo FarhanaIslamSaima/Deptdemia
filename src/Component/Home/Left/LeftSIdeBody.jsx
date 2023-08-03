@@ -4,6 +4,7 @@ import BookIcon from '@mui/icons-material/Book';
 import { BorderBottomOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import Physics from './Subjects/Physics/Physics';
+import IconButton from '@mui/material/IconButton';
 
 const Subject=['Physics','Chemistry','Math','Biology']
 const LeftSIdeBody = () => {
@@ -19,12 +20,14 @@ const LeftSIdeBody = () => {
         
 
        }}>
-        <Typography sx={{
-            fontWeight:'bold',
-            display:'flex',
-            justifyContent:'center',
-            alignItems:'center'
-        }} variant={'h5'}>Solutions</Typography>
+        <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+            
+              color="inherit"
+            ></IconButton>
         <Box sx={{
             marginTop:'10px'
         }}>

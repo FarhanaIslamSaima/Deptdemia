@@ -17,3 +17,23 @@ export const handleElement=(post)=>{
         return error;
     }
 }
+
+export const handleQuery=async(post)=>{
+    try{
+        const colRef=collection(db,'Query');
+        addDoc(colRef,{
+            option:post.option,
+            author:post.author,
+            authorId:post.authorId,
+            content:post.content,
+            file:post.file
+
+
+        })
+
+    }
+    catch(error){
+        return error;
+    }
+
+}

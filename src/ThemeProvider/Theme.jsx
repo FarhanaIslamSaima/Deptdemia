@@ -4,10 +4,15 @@ export default function GlobalStyleOverrides() {
   const theme = createTheme({       
     typography: {
       fontFamily: [
-     'cursive'
+        '"Comic Sans MS"',
+        
+        '"Lucida Handwriting"',
+        
       ].join(','),         
       body1: {
-        fontFamily: "cursive",
+        fontFamily: '"Comic Sans MS","Lucida Handwriting"'
+        
+        
       },
     },
     

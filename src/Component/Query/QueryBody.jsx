@@ -123,6 +123,7 @@ useEffect(()=>{
    
     <TextField
      select
+     required
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
@@ -160,8 +161,8 @@ useEffect(()=>{
         </TextField>
         
 
-    <input type="file" onChange={(e)=>Setfile(e.target.files[0])}/>
-    <TextareaAutosize name="content" placeholder="Write your problem statement clearly in here..." minRows={5} onChange={(e)=>handleChange(e)}  sx={{
+    <input  type="file" onChange={(e)=>Setfile(e.target.files[0])}/>
+    <TextareaAutosize required name="content" placeholder="Write your problem statement clearly in here..." minRows={5} onChange={(e)=>handleChange(e)}  sx={{
                 width:'100%',
                 border:'none',
                 fontSize:'20px',

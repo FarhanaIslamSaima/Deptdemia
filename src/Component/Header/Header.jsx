@@ -17,7 +17,8 @@ import { useAuthStatus } from "../../hooks/useAuthStatus";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const pages = ['Query', 'Contribute'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const subjects = ['Physics', 'Chemistry', 'Math', 'Biology'];
+const Actions=['Logout'];
 
 
 
@@ -121,13 +122,29 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-               {pages.map((page)=>(
+               
                   <MenuItem  onClick={handleCloseNavMenu}>
-                 <Link to={page} style={{textDecoration:'none', color:'black'}}><Typography textAlign="center">{page}</Typography></Link> 
-                 
+                 <Link to={'/Query'} style={{textDecoration:'none', color:'black'}}><Typography textAlign="center">Query</Typography></Link>
+                
+                
                 </MenuItem>
+                <MenuItem  onClick={handleCloseNavMenu}>
+                 <Link to={'/Contribute'} style={{textDecoration:'none', color:'black'}}><Typography textAlign="center">Contribute</Typography></Link>
+                
+                
+                </MenuItem>
+                <MenuItem>
+                <Link to={"/profile"} style={{textDecoration:'none', color:'black'}}><Typography sx={{
+              color:'black',
+              textDecoration:'none'
 
-               ))}
+           }}>{pageState}</Typography></Link>
+                
+                
+                </MenuItem>
+              
+
+              
               
               
                
@@ -171,15 +188,28 @@ const Header = () => {
               >
                 Contribution
               </Button></Link>
+              
            
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-           <Link to={"/profile"}><Typography sx={{
+          <Box sx={{ flexGrow: 0,display: { xs: 'none', md: 'flex' } }}>
+            
+              
+              <Link to={"/profile"} style={{textDecoration:'none', color:'black'}}><Typography sx={{
               color:'white',
               textDecoration:'none'
 
            }}>{pageState}</Typography></Link>
+              
+        
+         
+          </Box>
+
+          <Box sx={{ flexGrow: 0,display: { xs: 'flex', md: 'none' } }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Typography sx={{color:'white'}}>Courses</Typography>
+              </IconButton>
+            </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -196,9 +226,9 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {subjects.map((subject) => (
+                <MenuItem key={subject} onClick={handleCloseUserMenu}>
+                  <Link to={`subject/${subject}` } style={{textDecoration:'none',color:'black'}}><Typography textAlign="center">{subject}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>

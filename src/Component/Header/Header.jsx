@@ -23,6 +23,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 const Header = () => {
+  const test="NAN"
    const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   
@@ -153,16 +154,24 @@ const Header = () => {
           >
             DEPTDEMIA
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Link to={page} style={{textDecoration:'none'}}><Button
-                key={page}
+           
+              <Link to={"/Query"} style={{textDecoration:'none'}}><Button
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block ' }}
               >
-                {page}
+                Query
               </Button></Link>
-            ))}
+              <Link to={`/Contribute`} style={{textDecoration:'none'}}><Button
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block ' }}
+              >
+                Contribution
+              </Button></Link>
+           
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

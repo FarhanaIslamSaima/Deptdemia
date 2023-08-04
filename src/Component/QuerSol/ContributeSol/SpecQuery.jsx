@@ -1,20 +1,17 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import ContributeBody from './ContributeBody';
+import SpecQueryBody from './SpecQueryBody';
 import { useParams } from 'react-router-dom';
 
-const Contribute = () => {
-    const {quid}=useParams();
-    console.log(quid);
-    
+const SpecQuery = () => {
     return (
         <Grid container>
             <Grid item sm={12} xs={12}>
-                <ContributeBody></ContributeBody>
+                <SpecQueryBody></SpecQueryBody>
 
             </Grid>
         </Grid>
     );
 };
 
-export default Contribute;
+export default SpecQuery;

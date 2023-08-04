@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const NewsfeedBody = ({item}) => {
+    const test="NAN"
     return (
      <Card sx={{
         margin:'10px',
@@ -50,7 +51,7 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                     
                     width:'50%'
                 }}>
-                    <Button component={Link} to={`/Contribute`}variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit</Button>
+                    <Button component={Link} to={`/SpecQuery/${item.id}`} variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit</Button>
                 </Box>
 
             </Box>

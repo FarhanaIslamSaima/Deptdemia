@@ -39,3 +39,21 @@ export const handleQuery=async(post)=>{
     }
 
 }
+export const querySol=async(post)=>{
+    
+    try{
+        const colRef=collection(db,'QuerySol');
+        addDoc(colRef,{
+            queryId:post.queryId,
+            author:post.author,
+            content:post.content,
+            file:post.file,
+            option:post.option
+        })
+     console.log(post);
+    }
+    catch(error){
+        return error;
+    }
+
+}

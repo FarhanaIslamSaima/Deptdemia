@@ -6,19 +6,38 @@ import JoditEditor from 'jodit-react';
 import MenuItem from '@mui/material/MenuItem';
 import { v4 } from 'uuid';
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../../firebase';
+import { storage } from '../../../firebase';
 import { useContext } from 'react';
-import { UserContext } from '../../Context/AccountContext';
-import { handleElement } from '../../Actions/AddElement';
+import { UserContext } from '../../../Context/AccountContext';
+import { handleElement } from '../../../Actions/AddElement';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../../firebase';
+import { querySol } from '../../../Actions/AddElement';
 
+const SpecQueryBody = () => {
+    const [query,setQuery]=useState();
+    console.log(query)
+    const {id}=useParams();
+    console.log(id);
+    useEffect(()=>{
+        const getData=async()=>{
+            const Docref=doc(db,'Query',id);
+            const docSnap=await getDoc(Docref);
+            setQuery(docSnap.data());
+            console.log(docSnap.data());
 
-const ContributeBody = () => {
-    const {quid}=useParams();
-    console.log(quid);
+        }
+        setValue((prev=>({...prev,author:User.displayName})))
+        setValue((prev=>({...prev,option:query.option})))
+        setValue((prev=>({...prev,content:query.content})))
+        setValue((prev=>({...prev,queryId:id})))
+        getData();
+        
+     
+    },[])
     
-    console.log(quid);
 
     const navigate=useNavigate();
     const {User,setUser}=useContext(UserContext);
@@ -84,14 +103,15 @@ const ContributeBody = () => {
     setValue({...value,[e.target.name]:e.target.value})
     setValue((prev=>({...prev,author:User.displayName})))
     setValue((prev=>({...prev,authorId:User.uid})));
-    setValue((prev=>({...prev,queryId:quid})));
+    
     
    }
    const handleSubmit=async()=>{
     try{
-        await handleElement(value);
-        alert("Contribution uploaded successfully")
-    navigate('/');
+        await querySol(value);
+        alert("Solve Updated Successfully");
+        navigate("/");
+      
 
     }
     catch(error){
@@ -125,44 +145,14 @@ const ContributeBody = () => {
            }>
             
            
-     <TextField
-     select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={subject}
-          
-         
-          label="Course"
-          name="option"
-           sx={{marginBottom:'10px'}}
-       
-          onChange={handleChange}
-         
-        >
-            
-            
-            {
-            subOption.map((item)=>(
-                
-               
-                <MenuItem sx={{ 
-                    
-
-                    
-            
-            
-             }}
-                
-                value={item.label} name="option"><Typography sx={{
-                    display:'flex'
-                }}>{item.label}</Typography></MenuItem>
-               
-            ))
-        }
+     <TextField  disabled value={query.option} sx={{marginBottom:'10px'}} >
+     
+   
           
          
         </TextField>
-        <TextField required id="outlined-basic" label="Your problem statement" variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
+    
+        <TextField required id="outlined-basic" disabled value={query.content}variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
           
 
 
@@ -180,4 +170,4 @@ const ContributeBody = () => {
     );
 };
 
-export default ContributeBody;
+export default SpecQueryBody;

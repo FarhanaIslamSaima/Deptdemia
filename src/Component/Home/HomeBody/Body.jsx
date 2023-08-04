@@ -8,7 +8,7 @@ const Body = () => {
         <Box sx={{
             display:'flex',
             width:'100%',
-            height:'1000px',
+            
             background:'#E8E3C5',
             backgroundSize: 'cover'
         }}>

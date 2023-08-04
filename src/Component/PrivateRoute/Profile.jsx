@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { useEffect } from "react";
 import { getAuth } from '@firebase/auth';
-import { collection, getDoc, getDocs, onSnapshot, orderBy, query, where } from 'firebase/firestore';
-import { Box, Grid, Typography } from '@mui/material';
+import { collection, getDoc, getDocs, onSnapshot, orderBy, query, snapshotEqual, where } from 'firebase/firestore';
+import { Box, Button, Card, Container, Grid, Typography } from '@mui/material';
 import NewsfeedBody from '../NewsFeed/NewsfeedBody';
+
 
 
 export default function Profile() {
@@ -14,6 +15,7 @@ export default function Profile() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [userquery,setQuery]=useState([]);
+    const [userContribution, setUserContribuiton] = useState([]);
     console.log(userquery)
     
     const [formData, setFormData] = useState({
@@ -39,6 +41,18 @@ export default function Profile() {
                 setQuery(res);
                 console.log(res);
             })
+            let contribute=[];
+            const con_ref=collection(db,'Contribution');
+            const con_q=query(con_ref,where("authorId", "==", auth.currentUser.uid));
+
+            onSnapshot(con_q, (snapshot)=>{
+                snapshot.docs.forEach((doc)=>{
+                    contribute.push({...doc.data(), id:doc.id});
+                })
+                setUserContribuiton(contribute);
+                console.log(contribute);
+            })
+
            
             
 }, [auth.currentUser.uid])
@@ -50,30 +64,37 @@ export default function Profile() {
             <hr />
             <p>My query </p>
             <hr />
-            <Box  sx={{
-            margin:"20px"
-        }}>
+            <Container sx={{ py: 8 }} maxWidth="md">
+        
+                 <Grid container spacing={4}>
            
-        <Grid container>
-            {
-                userquery.map(item=>(
-                    <Grid item lg={12} sm={12} xs={12}>
-                    <Typography><b>Author:</b> {item.author}</Typography>
-                <Typography><b>Subject:</b>{item.option}</Typography>
-                <Typography><b>Date:</b>21.05.2001</Typography>
-                <Typography><b>Problem statement:</b>{item.content}</Typography>
+                    {userquery.map(item=>(
+                    
+                    <NewsfeedBody item={item}/>
                    
         
-                </Grid>
 
-                ))
-            }
+                ))}
        
-       
+                    </Grid>
+            </Container>
+            <hr />
+            <p>My Contribution </p>
+            <hr />
+            <Container sx={{ py: 8 }} maxWidth="md">
+        
+                 <Grid container spacing={4}>
+           
+                    {userContribution.map(item=>(
+                    
+                    <NewsfeedBody item={item}/>
+                   
         
 
-       </Grid>
-       </Box>
+                ))}
+       
+                    </Grid>
+            </Container>
 
         </div>
     )

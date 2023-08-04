@@ -42,15 +42,3 @@ export const getAllQuery=async()=>{
 
 }
 
-// export const getUserQuery=async()=>{
-//     try{
-       
-    
-//         return res;
-
-//     }
-//     catch(error){
-//         return error;
-//     }
-
-// }

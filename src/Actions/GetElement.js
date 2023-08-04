@@ -1,3 +1,4 @@
+import { getAuth } from "firebase/auth";
 import { db } from "../firebase";
 
 import { collection,ref,query,where, onSnapshot, getDocs } from "firebase/firestore";
@@ -40,3 +41,16 @@ export const getAllQuery=async()=>{
     }
 
 }
+
+// export const getUserQuery=async()=>{
+//     try{
+       
+    
+//         return res;
+
+//     }
+//     catch(error){
+//         return error;
+//     }
+
+// }

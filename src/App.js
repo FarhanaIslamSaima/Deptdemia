@@ -22,6 +22,7 @@ import Profile from "./Component/PrivateRoute/Profile";
 import GlobalStyleOverrides from "./ThemeProvider/Theme";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import SpecQuery from "./Component/QuerSol/ContributeSol/SpecQuery";
+import SpecSol from "./Component/QuerSol/Solves/SpecSol";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route  path="/Contribute" element={<Contribute/>}></Route>
             <Route exact path="/Query" element={<QueryHome/>}></Route>
             <Route exact path="/SpecQuery/:id" element={<SpecQuery/>}/>
+            <Route exact path="/solve/:id" element={<SpecSol/>}></Route>
       </Route>
       <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />

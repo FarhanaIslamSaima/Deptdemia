@@ -44,7 +44,7 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                 <Box sx={{
                     width:'50%'
                 }}>
-                <Button variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>Solution</Button>
+                <Button component={Link} to={`/solve/${item.id}`}variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>Solution</Button>
                 </Box>
                 <Box sx={{
          

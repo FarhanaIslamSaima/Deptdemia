@@ -16,27 +16,29 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { querySol } from '../../../Actions/AddElement';
 
-const SpecQueryBody = () => {
-    const [query,setQuery]=useState();
-    console.log(query)
-    const {id}=useParams();
-    console.log(id);
+const SpecQueryBody = ({query,id}) => {
+    const [value,setValue]=useState();
+    const [subject,setSubject]=useState();
+    const [file,setFile]=useState();
+    console.log(value)
+    const [progress,setProgress]=useState(null);
+    console.log(progress)
+    console.log(id)
+    
     useEffect(()=>{
-        const getData=async()=>{
-            const Docref=doc(db,'Query',id);
-            const docSnap=await getDoc(Docref);
-            setQuery(docSnap.data());
-            console.log(docSnap.data());
+       
+        
 
-        }
-        setValue((prev=>({...prev,author:User.displayName})))
-        setValue((prev=>({...prev,option:query.option})))
-        setValue((prev=>({...prev,content:query.content})))
-        setValue((prev=>({...prev,queryId:id})))
-        getData();
+    },[])
+    
+    
+  
+    if(query!=null){
         
      
-    },[])
+
+    }
+   
     
 
     const navigate=useNavigate();
@@ -57,12 +59,7 @@ const SpecQueryBody = () => {
         content:'',
         img:''
     }
-    const [value,setValue]=useState();
-    const [subject,setSubject]=useState();
-    const [file,setFile]=useState();
-    console.log(value)
-    const [progress,setProgress]=useState(null);
-    console.log(progress)
+  
     
  
     useEffect(()=>{
@@ -90,6 +87,11 @@ const SpecQueryBody = () => {
             ()=>{
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
                     setValue((prev=>({...prev,file:downloadURL})))
+                    setValue((prev=>({...prev,author:User.displayName})))
+                    setValue((prev=>({...prev,option:query.option})))
+                    setValue((prev=>({...prev,content:query.content})))
+                    setValue((prev=>({...prev,queryId:id})))
+            
                 })
             }
             
@@ -145,14 +147,14 @@ const SpecQueryBody = () => {
            }>
             
            
-     <TextField  disabled value={query.option} sx={{marginBottom:'10px'}} >
+     <TextField  disabled value={query!=null && query.option} sx={{marginBottom:'10px'}} onChange={(e)=>handleChange(e)} >
      
    
           
          
         </TextField>
     
-        <TextField required id="outlined-basic" disabled value={query.content}variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
+        <TextField required id="outlined-basic" disabled value={query!=null && query.content}variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
           
 
 

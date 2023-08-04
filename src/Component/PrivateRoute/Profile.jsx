@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { useEffect } from "react";
 import { getAuth } from '@firebase/auth';
 import { collection, getDoc, getDocs, onSnapshot, orderBy, query, snapshotEqual, where } from 'firebase/firestore';
 import { Box, Button, Card, Container, Grid, Typography } from '@mui/material';
-import NewsfeedBody from '../NewsFeed/NewsfeedBody';
-
+import { Dashboard } from '@mui/icons-material';
+import Dashboardbody from '../NewsFeed/Dashboardbody';
 
 
 export default function Profile() {
@@ -16,6 +16,8 @@ export default function Profile() {
     const [loading, setLoading] = useState(true);
     const [userquery,setQuery]=useState([]);
     const [userContribution, setUserContribuiton] = useState([]);
+    const location = useLocation();
+    console.log(location.pathname);
     console.log(userquery)
     
     const [formData, setFormData] = useState({
@@ -70,7 +72,7 @@ export default function Profile() {
            
                     {userquery.map(item=>(
                     
-                    <NewsfeedBody item={item}/>
+                    <Dashboardbody item={item}/>
                    
         
 
@@ -87,7 +89,7 @@ export default function Profile() {
            
                     {userContribution.map(item=>(
                     
-                    <NewsfeedBody item={item}/>
+                    <Dashboardbody item={item}/>
                    
         
 

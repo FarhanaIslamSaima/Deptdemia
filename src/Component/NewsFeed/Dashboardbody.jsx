@@ -4,14 +4,9 @@ import Contribute from '../Contribute/Contribute';
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 
-const NewsfeedBody = ({item}) => {
+const Dashboardbody = ({item}) => {
     const test="NAN"
-    const location = useLocation();
-    console.log(location.pathname);
-    const notProfile = true;
-    if (location.pathname === "/profile" ){
-        notProfile = false;
-    }
+
     return (
      <Card sx={{
         margin:'10px',
@@ -55,13 +50,7 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
 
                 <Button component={Link} to={`/solve/${item.id}`}variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>Solution</Button>
                 </Box>
-                <Box sx={{
-         
-                    
-                    width:'50%'
-                }}>
-                    <Button component={Link} to={`/SpecQuery/${item.id}`} variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit</Button>
-                </Box>
+                
 
             </Box>
             
@@ -70,4 +59,4 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
     );
 };
 
-export default NewsfeedBody;
+export default Dashboardbody;

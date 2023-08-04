@@ -56,11 +56,11 @@ const Login=() =>{
          password
        );
        navigate("/")
-       
+       toast(`Welcome ${auth.currentUser.displayName} 🥳`)
  
        }
        catch(error){
-         alert(error.message)
+         toast(error.message)
        }
       });
       

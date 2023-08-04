@@ -127,6 +127,7 @@ const ContributeBody = () => {
            
      <TextField
      select
+     required
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
@@ -168,7 +169,7 @@ const ContributeBody = () => {
 
         }}/>
 
-    <input type="file" onChange={(e)=>setFile(e.target.files[0])}/>
+    <input required type="file" onChange={(e)=>setFile(e.target.files[0])}/>
    
         <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
     

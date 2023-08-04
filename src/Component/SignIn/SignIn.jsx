@@ -20,6 +20,7 @@ import { updateProfile } from 'firebase/auth';
 import { db } from "../../firebase";
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 
@@ -77,11 +78,11 @@ const Signup=()=>{
         // firstName: data.get('firstName'),
         // lastName: data.get('lastName'),
       //}
-      
+      toast("Profile created successfully 😍")
       navigate("/login");
   
     }catch(error){
-        console.log(error);
+        toast("Error😢! try with different password");
     }
    
   };

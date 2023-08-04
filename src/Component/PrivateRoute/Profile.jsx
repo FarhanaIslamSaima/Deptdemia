@@ -14,6 +14,7 @@ export default function Profile() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [userquery,setQuery]=useState([]);
+    console.log(userquery)
     
     const [formData, setFormData] = useState({
         name: auth.currentUser.displayName,
@@ -35,9 +36,10 @@ export default function Profile() {
                 snapshot.docs.forEach((doc)=>{
                     res.push({...doc.data(),id:doc.id});
                 })
+                setQuery(res);
                 console.log(res);
             })
-            setQuery(res);
+           
             
 }, [auth.currentUser.uid])
     return (

@@ -42,19 +42,20 @@ function App() {
     <Route exact path="/" element={<Home/>}></Route>
     
     <Route path="/" element={<PrivateRoute />}>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route  path="/Contribute" element={<Contribute/>}></Route>
             <Route exact path="/Query" element={<QueryHome/>}></Route>
             <Route exact path="/SpecQuery/:id" element={<SpecQuery/>}/>
-            <Route exact path="/solve/:id" element={<SpecSol/>}></Route>
+            
       </Route>
       <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
         </Route>
-  
+        
   <Route exact path="/login" element={<Login></Login>}></Route>
   <Route exact path="/signup" element={<Signup></Signup>}></Route>
   <Route exact path="/subject/:subject" element={<Subject/>}></Route>
+  <Route exact path="/solve/:id" element={<SpecSol/>}></Route>
 
   </Routes>
 

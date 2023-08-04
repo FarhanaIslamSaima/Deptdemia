@@ -4,7 +4,8 @@ import { Button, Card, Typography,Box} from '@mui/material';
 import SimpleDialogBox from './SimpleDialogBox';
 
 const SpecSolbody = ({item}) => {
-    console.log(item);
+    
+    
     const emails = ['username@gmail.com', 'user02@gmail.com'];
 
     const [open, setOpen] = React.useState(false);

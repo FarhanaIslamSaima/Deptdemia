@@ -33,7 +33,7 @@ const SpecSol = () => {
     },[])
     
     const [sub,setSub]=useState([]);
-    console.log(sub)
+    console.log(solution)
     
     
   
@@ -43,7 +43,7 @@ const SpecSol = () => {
          
             
             width:'100%',
-            height:'1000px'
+            overflowAnchor:'none'
             
            
         }}>
@@ -61,7 +61,7 @@ const SpecSol = () => {
 
          
         <Grid container>
-            {solution.map(item=>(
+            {solution && solution.map(item=>(
                 <Grid item xs={12} sm={12} lg={4}>
                 <SpecSolbody item={item}/>
                

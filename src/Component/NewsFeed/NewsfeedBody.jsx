@@ -51,7 +51,7 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                     
                     width:'50%'
                 }}>
-                    <Button component={Link} to={`/SpecQuery/${item.id}`} variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit</Button>
+                    <Button component={Link} to={`/SpecQuery/${item.id}`} variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit Solution</Button>
                 </Box>
 
             </Box>

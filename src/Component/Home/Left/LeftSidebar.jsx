@@ -39,51 +39,8 @@ const LeftSidebar = () => {
     };
     return (
         <Container maxWidth="xl">
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },position:'absolute',right:'10px',top:'65px'}} >
-        <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-        <MenuIcon/>
-        </IconButton>
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorElNav}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          open={Boolean(anchorElNav)}
-          onClose={handleCloseNavMenu}
-          sx={{
-            display: { xs: 'block', md: 'none' },
-            width:'300px'
-          }}
-        >
-           { pages.map((page)=>(
-           
-             
-              <MenuItem  onClick={handleCloseNavMenu}>
-             <Link to={`/subject/${page}`} style={{textDecoration:'none',color:'black', fontWeight:'bold'}} ><Typography textAlign="center" sx={{fontWeight:'bold'}}>{page}</Typography></Link> 
-             
-            </MenuItem>
-
-           ))}
           
-          
-           
-        
-        </Menu>
-        </Box>
+       
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
      <LeftSIdeBody></LeftSIdeBody>
       </Box>

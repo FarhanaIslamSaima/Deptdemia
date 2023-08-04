@@ -29,6 +29,7 @@ const Header = () => {
   
   const auth = getAuth();
   const [pageState, setPageState] = React.useState("Sign in");
+ 
   React.useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -38,7 +39,6 @@ const Header = () => {
       }
     });
   }, [auth]);
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

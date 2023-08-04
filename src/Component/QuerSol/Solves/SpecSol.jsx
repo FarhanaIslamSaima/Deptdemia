@@ -41,9 +41,9 @@ const SpecSol = () => {
     return (
         <Box sx={{
          
-            
+            height:'100px',
             width:'100%',
-            overflowAnchor:'none'
+            
             
            
         }}>

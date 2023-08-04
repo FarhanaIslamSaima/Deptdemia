@@ -4,6 +4,10 @@ import { Button, Card, Typography,Box} from '@mui/material';
 import SimpleDialogBox from './SimpleDialogBox';
 
 const SpecSolbody = ({item}) => {
+    useEffect(() => {
+        // 👇️ scroll to top on page load
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
     
     
     const emails = ['username@gmail.com', 'user02@gmail.com'];
@@ -37,7 +41,8 @@ const SpecSolbody = ({item}) => {
 borderRadius: '16px',
 boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
 backdropFilter: 'blur(3.7px)',
-border: '2px solid rgba(216, 216, 216, 1.5)'
+border: '2px solid rgba(216, 216, 216, 1.5)',
+overflowAnchor:'none'
         }}>
 
             <Box sx={{

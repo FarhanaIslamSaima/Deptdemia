@@ -43,8 +43,10 @@ const defaultTheme = createTheme();
 
 const Signup=()=>{
   const navigate = useNavigate();
+  const [errors, setError] = React.useState({});
   const handleSubmit = async(event) => {
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
     const formData = {
       displayName: data.get('displayName'),
@@ -82,7 +84,14 @@ const Signup=()=>{
       navigate("/login");
   
     }catch(error){
-        toast("Error😢! try with different password");
+        let tempError = {};
+        if(!displayName) {tempError.displayName ="Name is required";}
+        if(!email) tempError.email = "Email required";
+        if(!password) tempError.password = "password required";
+
+        setError(tempError);
+
+        toast("Error😢! try again");
     }
    
   };
@@ -111,6 +120,7 @@ const Signup=()=>{
                 <TextField
                   autoComplete="given-name"
                   name="displayName"
+                  error = {errors.displayName? {content:errors.displayName}:null}
                   required
                   fullWidth
                   id="displayName"
@@ -123,6 +133,7 @@ const Signup=()=>{
                 <TextField
                   required
                   fullWidth
+                  error = {errors.email? {content:errors.email}:null}
                   id="email"
                   label="Email Address"
                   name="email"
@@ -133,6 +144,7 @@ const Signup=()=>{
                 <TextField
                   required
                   fullWidth
+                  error = {errors.password? {content:errors.password}:null}
                   name="password"
                   label="Password"
                   type="password"

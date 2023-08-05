@@ -9,6 +9,7 @@ const Dashboardbody = ({item}) => {
 
     return (
      <Card sx={{
+        
         margin:'10px',
         boxShadow:  '7px 7px 10px 1px rgba(0,0,0,0.75)',
         /* From https://css.glass */
@@ -32,7 +33,7 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
             <Typography><b>Author:</b> {item.author}</Typography>
             <Typography><b>Subject:</b>{item.option}</Typography>
             <Typography><b>Date:</b>21.05.2001</Typography>
-            <Typography><b>Problem statement:</b>{item.content}</Typography>
+            <Typography><b>Problem statement:</b>{item.title}</Typography>
             <Box sx={{
                 display:'flex',
                 width:'100%',
@@ -45,10 +46,18 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
 
                 
                 <Box sx={{
-                    width:'50%'
+                    width:'100%',
+
+                    display:'flex',
+                    '&>*':{
+                        margin:'5px'
+
+                    }
+                    
                 }}>
 
-                <Button component={Link} to={`/solve/${item.id}`}variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>Solution</Button>
+<Button component={Link} to={`/solve/${item.id}`}variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>Solution</Button>
+<Button component={Link} to={`/details/${item.id}`}variant={'contained'} color={'primary'} sx={{background:'black',marginTop:'10px'}}>See More</Button>
                 </Box>
                 
 

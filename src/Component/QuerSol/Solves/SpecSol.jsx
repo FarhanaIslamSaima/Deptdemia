@@ -52,6 +52,7 @@ const SpecSol = () => {
                 justifyContent:'center',
                 alignItems:'center',
                 marginBottom:"10px",
+                marginTop:"10px"
                 
 
             }}>FIND YOUR DESIRED  SOLUTION :</Typography>

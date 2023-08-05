@@ -39,7 +39,7 @@ const Details = () => {
 
 <img src={query.file} width={'100%'} height={'100%'} style={{objectFit:'scale-down'}}/>
 </Box>:''}
-{query.file!=''? <Box sx={{height:'50%',width:'50%',display:{xs:'flex',md:'none'}}}>
+{query.file!=''? <Box sx={{height:'75%',width:'75%',display:{xs:'flex',md:'none'}}}>
 
 <img src={query.file} width={'100%'} height={'100%'} style={{objectFit:'scale-down'}}/>
 </Box>:''}

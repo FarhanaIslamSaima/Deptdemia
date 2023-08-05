@@ -11,6 +11,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../firebase';
 import { handleQuery } from '../../Actions/AddElement';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const QueryBody = () => {
     const navigate=useNavigate();
@@ -45,7 +46,7 @@ const QueryBody = () => {
     const handleSubmit=async()=>{
         try{
             await handleQuery(value);
-            alert("Query Uploaded");
+            toast.success("Query uploaded")
             navigate("/");
 
         }

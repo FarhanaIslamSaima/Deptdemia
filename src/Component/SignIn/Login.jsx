@@ -38,6 +38,7 @@ const defaultTheme = createTheme();
 const Login=() =>{
   const {User,setUser}=useContext(UserContext)
   const navigate = useNavigate();
+  const [errors, setError] = React.useState({});
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -60,13 +61,20 @@ const Login=() =>{
  
        }
        catch(error){
-         toast(error.message)
+        let tempError = {};
+        if(!email) tempError.email = "Email required";
+        if(!password) tempError.password = "password required";
+  
+        setError(tempError);
+        toast.error("Bad user credentials");
        }
       });
       
      
     
     } catch (error) {
+      
+
       toast.error("Bad user credentials");
     }
   };
@@ -93,6 +101,7 @@ const Login=() =>{
             <TextField
               margin="normal"
               required
+              error={errors.email?{content:errors.email}:null}
               fullWidth
               id="email"
               label="Email Address"
@@ -104,6 +113,7 @@ const Login=() =>{
               margin="normal"
               required
               fullWidth
+              error={errors.password?{content:errors.password}:null}
               name="password"
               label="Password"
               type="password"

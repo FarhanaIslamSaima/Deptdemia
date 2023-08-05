@@ -54,7 +54,7 @@ overflowAnchor:'none'
                     margin:'5px'
                 }
             }}>
-                <Typography><b>Problem Statement:</b>{item.content}</Typography>
+                <Typography><b>Problem Statement:</b>{item.title}</Typography>
                 <Typography><b>Author:</b>{item.author}</Typography>
                 <Typography><b>Subject:</b>{item.option}</Typography>
                 <Button color={'primary'} variant={'contained'} style={{background:"black"}} onClick={handleClickOpen}>View Solution</Button>

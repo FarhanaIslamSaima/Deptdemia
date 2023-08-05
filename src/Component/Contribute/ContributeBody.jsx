@@ -12,7 +12,7 @@ import { UserContext } from '../../Context/AccountContext';
 import { handleElement } from '../../Actions/AddElement';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-
+import { TextareaAutosize } from '@mui/material';
 
 const ContributeBody = () => {
     const {quid}=useParams();
@@ -36,9 +36,11 @@ const ContributeBody = () => {
    const initialize={
         option:'',
         content:'',
-        img:''
+        file:'',
+        title:'',
+
     }
-    const [value,setValue]=useState();
+    const [value,setValue]=useState(initialize);
     const [subject,setSubject]=useState();
     const [file,setFile]=useState();
     console.log(value)
@@ -174,6 +176,17 @@ const ContributeBody = () => {
         }}/>
 
     <input required type="file" onChange={(e)=>setFile(e.target.files[0])}/>
+    <TextareaAutosize required name="content" placeholder="Write your problem's each and every details here.." minRows={5} onChange={(e)=>handleChange(e)}  sx={{
+                width:'100%',
+                border:'none',
+                fontSize:'20px',
+                height:'600px',
+                '&:focus-visible':{
+                    outline:'none'
+                }
+               
+        
+    }}       ></TextareaAutosize>
    
         <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
     

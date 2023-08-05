@@ -90,6 +90,7 @@ const SpecQueryBody = ({query,id}) => {
                     setValue((prev=>({...prev,author:User.displayName})))
                     setValue((prev=>({...prev,option:query.option})))
                     setValue((prev=>({...prev,content:query.content})))
+                    setValue((prev=>({...prev,title:query.title})))
                     setValue((prev=>({...prev,queryId:id})))
             
                 })

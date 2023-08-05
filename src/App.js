@@ -25,6 +25,7 @@ import SpecQuery from "./Component/QuerSol/ContributeSol/SpecQuery";
 import SpecSol from "./Component/QuerSol/Solves/SpecSol";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Details from "./Component/NewsFeed/Details";
 
 
 function App() {
@@ -53,7 +54,8 @@ function App() {
       <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
         </Route>
-        
+
+   <Route exact path="/details/:id" element={<Details/>} />     
   <Route exact path="/login" element={<Login></Login>}></Route>
   <Route exact path="/signup" element={<Signup></Signup>}></Route>
   <Route exact path="/subject/:subject" element={<Subject/>}></Route>

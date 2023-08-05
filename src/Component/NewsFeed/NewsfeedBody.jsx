@@ -36,8 +36,11 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
         }}>
             <Typography><b>Author:</b> {item.author}</Typography>
             <Typography><b>Subject:</b>{item.option}</Typography>
-            <Typography><b>Date:</b>21.05.2001</Typography>
-            <Typography><b>Problem statement:</b>{item.content}</Typography>
+            
+            
+            
+           
+            <Typography><b>Problem statement:</b>{item.title}</Typography>
             <Box sx={{
                 display:'flex',
                 width:'100%',
@@ -60,7 +63,7 @@ border: '1px solid rgba(216, 216, 216, 0.9)'
                     
                     width:'50%'
                 }}>
-                    <Button component={Link} to={`/SpecQuery/${item.id}`} variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>Submit</Button>
+                    <Button component={Link} to={`/details/${item.id}`} variant={'contained'} color={'primary'} sx={{marginTop:'10px',background:'black'}}>See More</Button>
                 </Box>
 
             </Box>

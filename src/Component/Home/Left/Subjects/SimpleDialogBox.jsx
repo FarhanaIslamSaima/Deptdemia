@@ -21,6 +21,9 @@ import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 // Import the styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/zoom/lib/styles/index.css';
+import { zoomPlugin } from '@react-pdf-viewer/zoom';
 
 
     
@@ -29,6 +32,9 @@ const emails = ['username@gmail.com', 'user02@gmail.com'];
 
 
 const SimpleDialogBox = (props) => {
+  const zoomPluginInstance = zoomPlugin();
+  const { Zoom } = zoomPluginInstance;
+
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
     const { onClose, selectedValue, open ,resume} = props;
 
@@ -55,10 +61,12 @@ const SimpleDialogBox = (props) => {
       
         
         >
+         
+
         {
             resume!==null&&(
               <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-              <Viewer fileUrl={resume} plugins={[defaultLayoutPluginInstance]}/>
+              <Viewer fileUrl={resume}  plugins={[defaultLayoutPlugin]}/>
               
           </Worker>
             )

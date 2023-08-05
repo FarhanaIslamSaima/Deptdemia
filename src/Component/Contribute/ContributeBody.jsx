@@ -81,6 +81,7 @@ const ContributeBody = () => {
     console.log(progress)
     },[file])
    const handleChange=(e)=>{
+   
     setValue({...value,[e.target.name]:e.target.value})
     setValue((prev=>({...prev,author:User.displayName})))
     setValue((prev=>({...prev,authorId:User.uid})));
@@ -127,7 +128,8 @@ const ContributeBody = () => {
            
      <TextField
      select
-     required
+     
+   
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={subject}
@@ -163,7 +165,9 @@ const ContributeBody = () => {
           
          
         </TextField>
-        <TextField required id="outlined-basic" label="Your problem statement" variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
+        <TextField 
+        
+        id="outlined-basic" label="Your problem statement" variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
           
 
 

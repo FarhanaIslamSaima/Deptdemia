@@ -154,7 +154,7 @@ const SpecQueryBody = ({query,id}) => {
          
         </TextField>
     
-        <TextField required id="outlined-basic" disabled value={query!=null && query.content}variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
+        <TextField required id="outlined-basic" disabled value={query!=null && query.title}variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
           
 
 

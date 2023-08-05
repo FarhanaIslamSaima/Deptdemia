@@ -28,7 +28,8 @@ export const handleQuery=async(post)=>{
             author:post.author,
             authorId:post.authorId,
             content:post.content,
-            file:post.file
+            file:post.file,
+            title:post.title
 
 
         })
@@ -49,6 +50,7 @@ export const querySol=async(post)=>{
             content:post.content,
             file:post.file,
             option:post.option
+            
         })
      console.log(post);
     }

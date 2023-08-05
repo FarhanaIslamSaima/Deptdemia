@@ -37,7 +37,8 @@ const QueryBody = () => {
    const initialize={
         option:'',
         content:'',
-        file:''
+        file:'',
+        title:''
     }
     const [value,setValue]=useState(initialize);
     const [subject,setSubject]=useState();
@@ -119,7 +120,7 @@ useEffect(()=>{
             flexDirection:'column',
             width:'80%',
            }}>
-            <Typography sx={{marginBottom:'10px'}}><b>Problem Set Code:</b>{text}</Typography>
+            
    
     <TextField
      select
@@ -159,10 +160,11 @@ useEffect(()=>{
           
          
         </TextField>
+        <TextField name="title" onChange={(e)=>handleChange(e)} placeholder='Explain the exact thing you want to know'></TextField>
         
 
     <input  type="file" onChange={(e)=>Setfile(e.target.files[0])}/>
-    <TextareaAutosize required name="content" placeholder="Write your problem statement clearly in here..." minRows={5} onChange={(e)=>handleChange(e)}  sx={{
+    <TextareaAutosize required name="content" placeholder="Write your problem's each and every details here.." minRows={5} onChange={(e)=>handleChange(e)}  sx={{
                 width:'100%',
                 border:'none',
                 fontSize:'20px',

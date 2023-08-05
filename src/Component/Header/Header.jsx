@@ -27,6 +27,8 @@ const Header = () => {
   const test="NAN"
    const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser2, setAnchorElUser2] = React.useState(null);
+  const [anchorElNav2, setAnchorElNav2] = React.useState(null);
   
   const auth = getAuth();
   const [pageState, setPageState] = React.useState("Sign in");
@@ -44,16 +46,28 @@ const Header = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+  const handleOpenNavMenu2 = (event) => {
+    setAnchorElNav2(event.currentTarget);
+  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+  };
+  const handleOpenUserMenu2 = (event) => {
+    setAnchorElUser2(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+  const handleCloseNavMenu2 = () => {
+    setAnchorElNav2(null);
+  };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  const handleCloseUserMenu2 = () => {
+    setAnchorElUser2(null);
   };
   const { loggedIn, checkingStatus } = useAuthStatus();
   if (checkingStatus) {
@@ -194,11 +208,14 @@ const Header = () => {
           <Box sx={{ flexGrow: 0,display: { xs: 'none', md: 'flex' } }}>
             
               
+            
+          
               <Link to={"/profile"} style={{textDecoration:'none', color:'black'}}><Typography sx={{
               color:'white',
               textDecoration:'none'
 
            }}>{pageState}</Typography></Link>
+            
               
         
          

@@ -27,7 +27,7 @@ const Details = () => {
     return (
         <Box sx={{background:'#E8E3C5',height:"1000px"}}>
        
-           <Box sx={{display:'flex',flexDirection:'column',justifyContent:'center',margin:'10px','&>*':{
+           <Box sx={{display:'flex',flexDirection:'column',justifyContent:'center','&>*':{
             margin:'6px'
            }}}>
             

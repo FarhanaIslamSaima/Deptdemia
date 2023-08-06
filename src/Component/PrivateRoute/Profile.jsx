@@ -60,11 +60,11 @@ export default function Profile() {
             
 }, [auth.currentUser.uid])
     return (
-    <Box sx={{width:'100%'}}>
+    <Box sx={{width:'100%', background:'#E8E3C5',}}>
         <Box sx={{width:'100%',display:'flex', justifyContent:'center',alignItems:'center',flexDirection:'column','&>*':{
             margin:'10px'
         }}}>
-            <Typography variant='h5'>My Profile</Typography>
+            <Typography variant='h5' sx={{padding:'10px'}}>My Profile</Typography>
             <Box sx={{width:'200px',height:'200px', display:'flex', justifyContent:'center',alignItems:'center',borderRadius:"50%",border:'2px solid black'}}>
                 <img src={Pic} width={'100%'} height={'100%'} style={{borderRadius:"50%"}}/>
             </Box>

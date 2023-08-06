@@ -24,7 +24,11 @@ const Answer = () => {
 
     },[])
     return (
-        <Box sx={{margin:"20px", padding:'10px','&>*':{
+        <Box sx={{ background:'#E8E3C5',height:'1000px'}}>
+        <Box sx={{ padding:'10px',
+       
+        
+        '&>*':{
             padding:"10px"
 
         }}}>
@@ -39,6 +43,7 @@ const Answer = () => {
 
             <Button variant={'contained'} color={'primary'} sx={{background:'black'}} component={Link} to={`/subject/${ans.option}`}>Back</Button>
 
+        </Box>
         </Box>
     );
 };

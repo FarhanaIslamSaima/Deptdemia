@@ -58,6 +58,7 @@ border: '2px solid rgba(216, 216, 216, 1.5)'
             }}>
                 <Typography><b>Problem Statement:</b>{item.title}</Typography>
                 <Typography><b>Author:</b>{item.author}</Typography>
+                <Typography><b>Subject:</b>{item.option}</Typography>
                 
                 <Box sx={{display:'flex','&>*':{
                     margin:"5px"

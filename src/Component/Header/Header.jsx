@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Query', 'Contribute'];
 const subjects = ['Physics', 'Chemistry', 'Math', 'Biology'];
@@ -24,6 +25,12 @@ const Actions=['Logout'];
 
 
 const Header = () => {
+  const navigate=useNavigate();
+  const handlePage=(subject)=>{
+    navigate(`/subject/${subject}`);
+    window.location.reload(true);
+
+  }
   const test="NAN"
    const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -46,29 +53,18 @@ const Header = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenNavMenu2 = (event) => {
-    setAnchorElNav2(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-  const handleOpenUserMenu2 = (event) => {
-    setAnchorElUser2(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const handleCloseNavMenu2 = () => {
-    setAnchorElNav2(null);
-  };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const handleCloseUserMenu2 = () => {
-    setAnchorElUser2(null);
-  };
+
   const { loggedIn, checkingStatus } = useAuthStatus();
   if (checkingStatus) {
     return <div>Loading</div>;
@@ -245,7 +241,7 @@ const Header = () => {
             >
               {subjects.map((subject) => (
                 <MenuItem key={subject} onClick={handleCloseUserMenu}>
-                  <Link to={`subject/${subject}` } style={{textDecoration:'none',color:'black'}}><Typography textAlign="center">{subject}</Typography></Link>
+                  <Button onClick={()=>handlePage(subject)} textAlign="center" sx={{color:"black"}}>{subject}</Button>
                 </MenuItem>
               ))}
             </Menu>

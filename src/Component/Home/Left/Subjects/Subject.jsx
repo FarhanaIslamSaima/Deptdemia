@@ -53,9 +53,10 @@ const Subject = () => {
                 justifyContent:'center',
                 alignItems:'center',
                 marginBottom:"10px",
-                marginTop:'10px'
+                padding:"20px"
+                
 
-            }}>FIND YOUR DESIRED SUBJECt SOLUTION :</Typography>
+            }}>FIND YOUR DESIRED SUBJECT SOLUTION :</Typography>
             <Box sx={{
                
             }}>

@@ -13,6 +13,7 @@ import { handleElement } from '../../Actions/AddElement';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { TextareaAutosize } from '@mui/material';
 
 
 const ContributeBody = () => {
@@ -175,7 +176,6 @@ const ContributeBody = () => {
         }}/>
 
     <input required type="file" onChange={(e)=>setFile(e.target.files[0])}/>
-<<<<<<< HEAD
     <Typography sx={{fontSize:"15px",marginBottom:'10px',color:'red'}}>*Please only upload pdf format file.. Other types of file(any type of images) will not support our site..</Typography>
     <TextareaAutosize required name="content" placeholder="Write your Solution's each and every details here.." minRows={10} onChange={(e)=>handleChange(e)}  sx={{
                 width:'100%',
@@ -188,8 +188,6 @@ const ContributeBody = () => {
                
         
     }}       ></TextareaAutosize>
-=======
->>>>>>> 3071fd9a641d301ce42e68024051b11da5e815d9
    
         <Button sx={{background:'black'}}variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
     

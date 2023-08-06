@@ -83,15 +83,15 @@ const ContributeBody = () => {
     console.log(progress)
     },[file])
    const handleChange=(e)=>{
-   
+    
     setValue({...value,[e.target.name]:e.target.value})
     setValue((prev=>({...prev,author:User.displayName})))
     setValue((prev=>({...prev,authorId:User.uid})));
     setValue((prev=>({...prev,queryId:quid})));
-    
    }
    const handleSubmit=async()=>{
     try{
+        
         await handleElement(value);
         toast("Contribution uploaded successfully")
     navigate('/');

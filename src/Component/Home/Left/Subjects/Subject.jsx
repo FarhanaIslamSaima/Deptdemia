@@ -43,7 +43,8 @@ const Subject = () => {
          
             background:`url(${pic}) no-repeat center center fixed`,
             width:'100%',
-            height:'1000px'
+            height:'1000px',
+            background:'#E8E3C5',
             
            
         }}>

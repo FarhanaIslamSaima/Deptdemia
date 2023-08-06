@@ -8,7 +8,7 @@ const Contribute = () => {
     console.log(quid);
     
     return (
-        <Grid container>
+        <Grid container sx={{   background:'#E8E3C5',height:'1000px'}}>
             <Grid item sm={12} xs={12}>
                 <ContributeBody></ContributeBody>
 

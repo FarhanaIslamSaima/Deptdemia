@@ -43,6 +43,9 @@ const SpecSol = () => {
          
             height:'100px',
             width:'100%',
+            background:'#E8E3C5',
+            height:"1000px"
+        
             
             
            

@@ -25,8 +25,9 @@ const Details = () => {
     },[])
     
     return (
+        <Box sx={{background:'#E8E3C5',height:"1000px"}}>
        
-           <Box sx={{display:'flex',flexDirection:'column',justifyContent:'center',margin:'20px','&>*':{
+           <Box sx={{display:'flex',flexDirection:'column',justifyContent:'center',margin:'10px','&>*':{
             margin:'6px'
            }}}>
             
@@ -54,6 +55,7 @@ const Details = () => {
 
            
 
+           </Box>
            </Box>
     );
 };

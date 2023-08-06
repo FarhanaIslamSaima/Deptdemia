@@ -14,6 +14,11 @@ export default function GlobalStyleOverrides() {
         
         
       },
+      input: {
+        "& input.Mui-disabled": {
+          color: "green"
+        }
+      }
     },
     
   });

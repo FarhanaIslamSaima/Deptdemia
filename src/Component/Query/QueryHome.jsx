@@ -9,7 +9,8 @@ const QueryHome = () => {
     return (
         <Grid container sx={{
             background:`url(${pic}) no-repeat center center fixed`,
-            height:'1000px'
+            height:'1000px',
+            background:'#E8E3C5',
             
         }}>
             <Grid item sm={12} xs={12}>

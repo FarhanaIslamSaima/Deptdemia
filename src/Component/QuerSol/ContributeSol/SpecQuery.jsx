@@ -32,7 +32,7 @@ const SpecQuery = () => {
     },[])
     return (
         <Grid container>
-            <Grid item sm={12} xs={12}>
+            <Grid item sm={12} xs={12} sx={{background:'#E8E3C5',height:'1000px'}}>
                 <SpecQueryBody query={query} id={id}></SpecQueryBody>
 
             </Grid>

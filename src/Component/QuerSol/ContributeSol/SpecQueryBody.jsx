@@ -148,7 +148,10 @@ const SpecQueryBody = ({query,id}) => {
            }>
             
            
-     <TextField  disabled value={query!=null && query.option} sx={{marginBottom:'10px'}} onChange={(e)=>handleChange(e)} >
+     <TextField  disabled value={query!=null && query.option} sx={{marginBottom:'10px',color:'black',"& .MuiInputBase-input.Mui-disabled": {
+      WebkitTextFillColor: "#000000",
+    },
+}} onChange={(e)=>handleChange(e)} >
      
    
           
@@ -157,13 +160,17 @@ const SpecQueryBody = ({query,id}) => {
     
         <TextField required id="outlined-basic" disabled value={query!=null && query.title}variant="outlined" onChange={(e)=>handleChange(e)} name="title" sx={{
           
+          "& .MuiInputBase-input.Mui-disabled": {
+            WebkitTextFillColor: "#000000",
+          },
 
+        }}></TextField>
 
-        }}/>
 
     <input type="file" onChange={(e)=>setFile(e.target.files[0])}/>
+    <Typography sx={{fontSize:"15px",marginBottom:'10px',color:'red'}}>*Please only upload pdf format file.. Other types of file(any type of images) will not support our site..</Typography>
    
-        <Button variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
+        <Button sx={{background:"black"}}variant={'contained'} color={'primary'} disabled={progress!=null && progress<100} onClick={handleSubmit}>Submit</Button>
     
         
 

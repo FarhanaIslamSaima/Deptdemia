@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Typography,Box} from '@mui/material';
 import Modal from './Modal';
 import SimpleDialogBox from './SimpleDialogBox';
+import { Link } from 'react-router-dom';
 
 
 
@@ -22,7 +23,14 @@ const SubjectBody = ({item}) => {
     const [modal,setModal]=useState(false);
      const [resume,setResume]=useState(null);
      useEffect(()=>{
-        setResume(item.file)
+        if(item.file!=''){
+            setResume(item.file)
+
+        }
+        else{
+            setResume('PDF NOT AVAIALABLE')
+        }
+        
 
      },[])
     
@@ -50,8 +58,18 @@ border: '2px solid rgba(216, 216, 216, 1.5)'
             }}>
                 <Typography><b>Problem Statement:</b>{item.title}</Typography>
                 <Typography><b>Author:</b>{item.author}</Typography>
-                <Typography><b>Date:</b>21.05.2001</Typography>
-                <Button color={'primary'} variant={'contained'} style={{background:"black"}} onClick={handleClickOpen}>View Solution</Button>
+                
+                <Box sx={{display:'flex','&>*':{
+                    margin:"5px"
+                }}}>
+                    <Box>
+                    <Button color={'primary'} variant={'contained'} style={{background:"black"}} onClick={handleClickOpen}>PDF</Button>
+                    </Box>
+                    <Box>
+                    <Button component ={Link} to={`/ans/${item.id}`}color={'primary'} variant={'contained'} style={{background:"black"}} onClick={handleClickOpen}>ANSWER</Button>
+                    </Box>
+                </Box>
+
                 <SimpleDialogBox
         selectedValue={selectedValue}
         open={open}

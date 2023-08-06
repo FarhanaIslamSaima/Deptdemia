@@ -11,6 +11,7 @@ import {
   Router,
   useRouteMatch,
 } from "react-router-dom";
+import Answer from "./Component/Home/Left/Subjects/Answer";
 import QueryHome from "./Component/Query/QueryHome";
 import Home from "./Component/Home/Home";
 import Login from "./Component/SignIn/Login";
@@ -60,6 +61,7 @@ function App() {
   <Route exact path="/signup" element={<Signup></Signup>}></Route>
   <Route exact path="/subject/:subject" element={<Subject/>}></Route>
   <Route exact path="/solve/:id" element={<SpecSol/>}></Route>
+  <Route exact path="/ans/:id" element={<Answer/>}></Route>
 
   </Routes>
 

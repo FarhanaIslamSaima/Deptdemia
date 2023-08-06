@@ -7,6 +7,7 @@ import { collection, getDoc, getDocs, onSnapshot, orderBy, query, snapshotEqual,
 import { Box, Button, Card, Container, Grid, Typography } from '@mui/material';
 import { Dashboard } from '@mui/icons-material';
 import Dashboardbody from '../NewsFeed/Dashboardbody';
+import Pic from './assets/propic.jpg'
 
 
 export default function Profile() {
@@ -59,45 +60,59 @@ export default function Profile() {
             
 }, [auth.currentUser.uid])
     return (
-        <div>
-            <input type="text" disabled value={email} /><br/>
-            <input type="text"  disabled value={name} />
-            <button onClick={onLogout}>Logout</button>
-            <hr />
-            <p>My query </p>
-            <hr />
-            <Container sx={{ py: 8 }} maxWidth="md">
+    <Box sx={{width:'100%'}}>
+        <Box sx={{width:'100%',display:'flex', justifyContent:'center',alignItems:'center',flexDirection:'column','&>*':{
+            margin:'10px'
+        }}}>
+            <Typography variant='h5'>My Profile</Typography>
+            <Box sx={{width:'200px',height:'200px', display:'flex', justifyContent:'center',alignItems:'center',borderRadius:"50%",border:'2px solid black'}}>
+                <img src={Pic} width={'100%'} height={'100%'} style={{borderRadius:"50%"}}/>
+            </Box>
+            <Box sx={{'&>*':{
+             
+                
+            }}}>
+                <Typography sx={{fontSize:'20px'}}>Name:{name}</Typography>
+                <Typography sx={{fontSize:'20px'}}>Email:{email}</Typography>
+                <Typography sx={{fontSize:'20px'}}>Contrbutions:{userContribution.length}</Typography>
+                <Typography sx={{fontSize:'20px'}}>Query:{userquery.length}</Typography>
+                <Button variant={'contained'} color={'primary'} onClick={onLogout} sx={{background:'black' ,marginTop:'10px'}} >Logout</Button>
+               
+            </Box>
+            
+            
+
+        </Box>
         
-                 <Grid container spacing={4}>
+        <Box>
+        <hr/>
+            <Typography sx={{padding:'5px',display:'flex',justifyContent:'center',alignItems:'center'}} variant='h5'>My Query</Typography>
+            <hr/>
+            <Container sx={{ py:8 }} >
+        
+        <Grid container spacing={4}>
+  
+           {userquery.map(item=>(
+            <Grid item sx={12} lg={4}>
+                <Dashboardbody item={item}/>
+
+            </Grid>
            
-                    {userquery.map(item=>(
-                    
-                    <Dashboardbody item={item}/>
-                   
-        
-
-                ))}
-       
-                    </Grid>
-            </Container>
-            <hr />
-            <p>My Contribution </p>
-            <hr />
-            <Container sx={{ py: 8 }} maxWidth="md">
-        
-                 <Grid container spacing={4}>
            
-                    {userContribution.map(item=>(
-                    
-                    <Dashboardbody item={item}/>
-                   
-        
+          
 
-                ))}
+
+       ))}
+
+           </Grid>
+          
+   </Container>
+ 
+  
+        </Box>
        
-                    </Grid>
-            </Container>
+      
 
-        </div>
+        </Box>
     )
 }

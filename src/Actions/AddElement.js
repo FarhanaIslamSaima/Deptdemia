@@ -9,7 +9,8 @@ export const handleElement=(post)=>{
             author:post.author,
             title:post.title,
             file:post.file,
-            authorId:post.authorId
+            authorId:post.authorId,
+            content:post.content
 
         })
 
@@ -29,7 +30,8 @@ export const handleQuery=async(post)=>{
             authorId:post.authorId,
             content:post.content,
             file:post.file,
-            title:post.title
+            title:post.title,
+            
 
 
         })
@@ -49,7 +51,8 @@ export const querySol=async(post)=>{
             author:post.author,
             content:post.content,
             file:post.file,
-            option:post.option
+            option:post.option,
+            title:post.title
             
         })
      console.log(post);

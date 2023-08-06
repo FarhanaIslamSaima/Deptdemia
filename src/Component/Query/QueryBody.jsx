@@ -165,7 +165,7 @@ useEffect(()=>{
         
 
     <input  type="file" onChange={(e)=>Setfile(e.target.files[0])}/>
-    <Typography sx={{fontSize:"15px",marginBottom:'10px',color:'red'}}>*Please only upload pdf format file.. Other types of file(any type of images) will not support our site..</Typography>
+    <Typography sx={{fontSize:"15px",marginBottom:'10px',color:'red'}}>*Please only upload file in jpg or png format</Typography>
     <TextareaAutosize required name="content" placeholder="Write your problem's each and every details here.." minRows={5} onChange={(e)=>handleChange(e)}  sx={{
                 width:'100%',
                 border:'none',

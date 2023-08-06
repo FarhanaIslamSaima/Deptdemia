@@ -12,6 +12,7 @@ import { UserContext } from '../../Context/AccountContext';
 import { handleElement } from '../../Actions/AddElement';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const ContributeBody = () => {
@@ -87,11 +88,12 @@ const ContributeBody = () => {
     setValue((prev=>({...prev,authorId:User.uid})));
     setValue((prev=>({...prev,queryId:quid})));
     
+    
    }
    const handleSubmit=async()=>{
     try{
         await handleElement(value);
-        alert("Contribution uploaded successfully")
+        toast("Contribution uploaded successfully")
     navigate('/');
 
     }
